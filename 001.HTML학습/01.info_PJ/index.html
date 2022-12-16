@@ -72,6 +72,11 @@
           7. 직계자식 선택자 : > (왼쪽꺾쇠)
           예) header>a{} -> header 바로아래 a요소
 
+          8. 형제선택자 : +
+          예) div+div{} -> 앞에 형제 div가 있는 div선택
+          예) a+a{} -> 앞에 a가 있는 a선택
+          -> 첫번째를 제외한 나머지 형제요소들 선택시 많이 쓰여짐
+
 
           */
 
@@ -166,7 +171,7 @@
               (글이 여러줄일 때 사이 간격용 또는 글자 박스에서 중앙정렬시)
               line-height - 단위없으면 배수
               */
-              line-height: 1.8;
+              /* line-height: 1.8; */
 
               /* 5. 글자체 : font-family  ff
               - 콤마로 여러개를 쓰면 대체체를 설정함
@@ -191,6 +196,21 @@
               /* 밑줄없앰 - text-decoration: none  tdn */
               text-decoration: none;
             }
+            /* a요소 오버시 */
+            /* :hover 가상클래스 
+            -> 마우스오버된 상태에 대한 디자인 셋팅
+            */
+            /* a+a:hover 앞에 a형제가 있는 a에 오버시 */
+            #gnb a:hover{
+              /* 글자색 */
+              color: rgb(179, 49, 16);
+              /* 글자 데코레이션 : text-decoration
+                underline(밑줄),overline(윗줄)
+                line-through(중간줄)/none(없음)
+              */
+              text-decoration: underline;
+            }
+          
 
             /* 2.메인영역 */
             /* 메인영역 이미지 */
