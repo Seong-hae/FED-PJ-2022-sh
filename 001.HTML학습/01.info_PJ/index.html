@@ -12,6 +12,18 @@
         <title>네이버 요약 뉴스</title>
         <!-- 인터널 스타일시트 요소 -->
         <style>
+          /* 웹폰트 CDN */
+          @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Nanum+Myeongjo&display=swap');
+
+          /*
+          1. 타이틀용
+          font-family: 'Do Hyeon', sans-serif;
+          2. 메뉴/하단용
+          font-family: 'Black Han Sans', sans-serif;
+          3. 본문용
+          font-family: 'Nanum Myeongjo', serif;
+          */
+
           /*
           [ 스타일 시트 문법 영역! 기본문법 ]
 
@@ -135,8 +147,9 @@
               italic : 이탤릭
               normal : 이탤릭 해제(기본값)
               */
-              font-style: ilalic;
+              /* font-style: ilalic; */
               /* font-style: normal; */
+              font-family: 'Do Hyeon', sans-serif;
               /* 2. 글자두께 fw : font-weight 
               normal : 두께없음
               bold : 두껍게
@@ -158,10 +171,25 @@
               /* 5. 글자체 : font-family  ff
               - 콤마로 여러개를 쓰면 대체체를 설정함
               */
-              font-family: "궁서", "굴림", "맑은 고딕", sans-serif;
+              /* font-family: "궁서", "굴림", "맑은 고딕", sans-serif; */
               
+              /* 6. 글자색 : c
+              color - 해시코드/RGB/HSL/웹색상명
+              */
+              color: rgb(81, 157, 219);
+            }
 
-
+            /* GNB 메뉴 a */
+            #gnb a{
+              /* 글자체 */
+              font-family: 'Black Han Sans', sans-serif;
+              /* a요소는 기본적으로 밑줄과 글자색이 셋팅됨!
+                반드시 a에서 변경해야만 적용된다!(부모에서는 안됨!)
+              */
+              /* 글자색 */
+              color: rgb(252, 124, 102);
+              /* 밑줄없앰 - text-decoration: none  tdn */
+              text-decoration: none;
             }
 
             /* 2.메인영역 */
@@ -179,6 +207,7 @@
               background-color: #fdeded;
               /* 글자중앙정렬 */
               text-align: center;
+              font-family: 'Nanum Myeongjo', serif;
             }
 
 
