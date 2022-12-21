@@ -85,7 +85,13 @@ body {
     /* 글자체 ff */
     font-family: "Nanum Myeongjo", sans-serif;
 }
-
+/* 전체 a요소 공통 셋팅 */
+a{
+    /* 글자색 */
+    color: #222;
+    /* 밑줄없앰 */
+    text-decoration: none;
+}
 /* 박스공통 클래스 */
 .bx {
     /* 가로크기 w 
