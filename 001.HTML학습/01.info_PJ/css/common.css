@@ -2,10 +2,8 @@
 /* 외부CSS 상단엔 charset 필수! */
 /* Info PJ 공통 CSS - common.css */
 
-
-
 /* 웹폰트 CDN */
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Nanum+Myeongjo&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Nanum+Myeongjo&display=swap");
 
 /*
 1. 타이틀용
@@ -73,85 +71,86 @@ https://www.w3schools.com/css/css_boxmodel.asp
 */
 
 /* 기본마진 패딩 없애기 */
-html,body{
-margin: 0;
-padding: 0;
-/* 실제는 body에만 마진 8px이 있지만 사용자가 별도로 적용한 마진 등 초기화 할 때
+html,
+body {
+    margin: 0;
+    padding: 0;
+    /* 실제는 body에만 마진 8px이 있지만 사용자가 별도로 적용한 마진 등 초기화 할 때
 한꺼번에 최상위 요소인 html, body를 마진, 패딩 초기값 0으로 셋팅한다! */
 }
 
-body{
-/* 하단패딩 pb */
-padding-bottom: 50px;
+body {
+    /* 하단패딩 pb */
+    padding-bottom: 50px;
+    /* 글자체 ff */
+    font-family: "Nanum Myeongjo", sans-serif;
 }
 
-
 /* 박스공통 클래스 */
-.bx{
-/* 가로크기 w 
+.bx {
+    /* 가로크기 w 
 아무 값도 안쓰면? auto인데... 블록은 부모요소 끝까지 차지
 */
-width: 750px;
-/* 세로크기 h
+    width: 750px;
+    /* 세로크기 h
 아무 값도 안쓰면? auto인데... 블록은 내용만큼만 늘어남
 */
-/* height: 150px; */
-/* 경계선(보더) bd
+    /* height: 150px; */
+    /* 경계선(보더) bd
 border: 두께 종류 색상
     - border-width : 두께
     - border-style : 종류
     - border-color : 색상
 */
-border: 5px double #fdd3d3;
+    border: 5px double #fdd3d3;
 
-/* 둥근 모서리 보더 : brad bdrs
+    /* 둥근 모서리 보더 : brad bdrs
 border-radius : 값
 값을 50%을 주면 원이 생김
 */
-border-radius: 10px;
-/* border-radius: 50%; */
+    border-radius: 10px;
+    /* border-radius: 50%; */
 
-
-/* 안쪽여백(패딩) p 
+    /* 안쪽여백(패딩) p 
     padding : 1개 (4방향)
     padding : 1개 2개 (위아래 양쪽)
     padding : 1개 2개 3개(위 양쪽 아래)
     padding : 1개 2개 3개 4개 (위 오른 아래 왼)
     ->>> 마진도 동일함!
 */
-padding: 20px;
-/* padding: 20px 50px 80px 5px; */
+    padding: 20px;
+    /* padding: 20px 50px 80px 5px; */
 
-/* 바깥여백(마진) m */
-/* margin: 30px; */
-margin: 0 auto;
-/* 마진탑 덮어쓰기 mt */
-margin-top: 30px;
-/* 
+    /* 바깥여백(마진) m */
+    /* margin: 30px; */
+    margin: 0 auto;
+    /* 마진탑 덮어쓰기 mt */
+    margin-top: 30px;
+    /* 
     마영오씨가 누구지?
     - 일반적인 블록요소가 가로크기를 가질 때 이를 중앙정렬하려면 양쪽 마지은 auto로 설정한다.
     이 때 위아래 0 양쪽 auto를 줄여서 마영오! 라고 함!
 */
 }
 
-
 /* 1.상단영역 */
-.top{
+.top {
     /* 배경색 : bgc
     background-color */
     background-color: #fdeded;
     /* 글자중앙정렬 tac */
     text-align: center;
 }
+
 /* 타이틀 */
-.top>h1{
+.top > h1 {
     /* 1. 글자 스타일 : font-style 
     italic : 이탤릭
     normal : 이탤릭 해제(기본값)
     */
     /* font-style: ilalic; */
     /* font-style: normal; */
-    font-family: 'Do Hyeon', sans-serif;
+    font-family: "Do Hyeon", sans-serif;
     /* 2. 글자두께 fw : font-weight 
     normal : 두께없음
     bold : 두껍게
@@ -174,7 +173,7 @@ margin-top: 30px;
     - 콤마로 여러개를 쓰면 대체체를 설정함
     */
     /* font-family: "궁서", "굴림", "맑은 고딕", sans-serif; */
-    
+
     /* 6. 글자색 : c
     color - 해시코드/RGB/HSL/웹색상명
     */
@@ -182,9 +181,9 @@ margin-top: 30px;
 }
 
 /* GNB 메뉴 a */
-#gnb a{
+#gnb a {
     /* 글자체 */
-    font-family: 'Black Han Sans', sans-serif;
+    font-family: "Black Han Sans", sans-serif;
     /* a요소는 기본적으로 밑줄과 글자색이 셋팅됨!
     반드시 a에서 변경해야만 적용된다!(부모에서는 안됨!)
     */
@@ -195,12 +194,13 @@ margin-top: 30px;
     /* 밑줄없앰 - text-decoration: none  tdn */
     text-decoration: none;
 }
+
 /* a요소 오버시 */
 /* :hover 가상클래스 
 -> 마우스오버된 상태에 대한 디자인 셋팅
 */
 /* a+a:hover 앞에 a형제가 있는 a에 오버시 */
-#gnb a+a:hover{
+#gnb a + a:hover {
     /* 글자색 */
     color: rgb(179, 49, 16);
     /* 글자 데코레이션 : text-decoration
@@ -209,8 +209,9 @@ margin-top: 30px;
     */
     text-decoration: underline;
 }
+
 /* 로고 이미지 */
-#gnb img{
+#gnb img {
     /* 인라인요소간 세로정렬(진행방향) : va
     vertical-align
     - 값:top,bottom,middle,수치
@@ -218,12 +219,11 @@ margin-top: 30px;
     vertical-align: -3px;
 }
 
-
 /* 2.메인영역 */
 /* 메인영역 이미지 
 -> 메인의 .cont 직계자식 img만 적용되게 함!
 */
-.cont>img{
+.cont > img {
     width: 100%;
     /* 한쪽만 크기를 주면 이미지는 자동으로 비율유지를 하면서 변경된다!
     100%는 부모박스를 채움!
@@ -231,20 +231,20 @@ margin-top: 30px;
 }
 
 /* 3.하단영역 */
-.info{
+.info {
     /* 배경색 */
     background-color: #fdeded;
     /* 글자중앙정렬 */
     text-align: center;
 }
+
 /* 하단주소 */
-.info address{
+.info address {
     /* 글자체 */
-    font-family: 'Black Han Sans', sans-serif;
+    font-family: "Black Han Sans", sans-serif;
     /* address는 기본 이탤릭 이므로 해제하기 */
     font-style: normal;
     color: rgb(248, 140, 121);
     /* 글자크기 */
     font-size: 15px;
 }
-
