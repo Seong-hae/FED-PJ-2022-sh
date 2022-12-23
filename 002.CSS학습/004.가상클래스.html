@@ -135,7 +135,9 @@
             /* 내부 인라인요소 오른쪽정렬 */
             text-align: right;
 
-            outline: 1px solid red;
+            /* outline: 1px solid red; */
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         /* 
@@ -153,10 +155,10 @@
             list-style: none;
         }
 
-        /* ul 기본 리셋하기 */
-        ul.part1{            
+        /* 부모박스 셋팅 */
+        ul.part1, div.part2{            
             width: 800px;
-            margin: 0 auto;
+            margin: 30px auto;
             padding: 20px;
             border: 2px solid #ccc;
             border-radius: 20px;
@@ -172,6 +174,8 @@
             [ font 한 번에 셋팅하기! ]
             font : 스타일 두께 크기/줄간격 글자체
             font : 스두크/줄체
+            ---> font 한 번에 쓰기에서 글자체는 필수!
+            ---> 2개이상 셋팅필수
         */
         /* 모든 li에 오버시 손가락 모양 */
         .part1 li{
@@ -263,9 +267,49 @@
         */
 
 
+        /* 두번째 파트
+        -> 여러종류의 요소가 섞여 있으면
+        first-of-type
+        nth-of-type(n)
+        last-of-type
+        */
+
+        /* 두번째 div
+        font- 30px 궁서
+        글자색 - blueviolet*/
+        .part2 div:nth-of-type(2){
+            font: 30px "궁서";
+            color: blueviolet;
+        }
+        .part2 i:first-of-type{
+            font-weight: bold;
+            font-size: 20px;
+            color: palevioletred;
+        }
+        /* 3번째 div이후 div형제 요소 모두
+        .part2 div:nth-of-type(3) ~ div{
+        font-family: "궁서";
+        color: red;
+        } */
+        /* 3번째 div이후 i형제 요소 모두 */
+        /* .part2 div:nth-of-type(3) ~ i{
+            font-family: "궁서";
+            color: red;
+        } */
+        /* 3번쨰 div이후 모든 형제요소(*) */
+        .part2 div:nth-of-type(3) ~ *{
+            font-family: "궁서";
+            color: red;
+        }
 
 
 
+
+
+        /* ____________________________________________________ */
+
+
+        
 
         /* 
         [ CSS 선택자 우선순위 ]
