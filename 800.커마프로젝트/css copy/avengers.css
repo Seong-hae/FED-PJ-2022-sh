@@ -3,12 +3,10 @@
 
 /* 웹폰트 */
 @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Single+Day&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 
 /* 
     font-family: 'Monoton', cursive;
     font-family: 'Single Day', cursive;
-    font-family: 'Black Han Sans', sans-serif;
 */
 html{
     scroll-behavior: smooth;
@@ -57,14 +55,12 @@ html,body{
     width: 100%;
     z-index: 9999;/* 가장위 */
 
-    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'Monoton', cursive;
     color: #fff;
     font-size: 70px;
     /* 글자두께 보통 */
-    font-weight: bold;
+    font-weight: normal;
     text-align: center;
-    letter-spacing: 5px;
-    text-shadow: 2px 2px 3px #000;
     /* 위아래 패딩 */
     padding: 50px 0;  
 }
@@ -86,15 +82,15 @@ html,body{
     /* 배경이미지 */
     background: url(../ab_img/ab0.jpg) no-repeat center/cover;
     /* 둥근모서리 -> 원형 50% */
-    border-radius: 45%;
+    border-radius: 50%;
     /* 마영오! */
     margin: 0 auto;
     /* 글러우 효과 : 박스그림자 응용
     box-shadow: x y blur spread 색;
     inset은 내부그림자
     */
-    box-shadow: 0 0 50px 10px rgb(253, 190, 249),
-    inset 0 0 30px rgb(144, 155, 238);
+    box-shadow: 0 0 50px 10px cyan,
+    inset 0 0 30px lightgreen;
 }
 
 /* 캐릭터박스 */
@@ -154,7 +150,7 @@ html,body{
     /* 이미지 둥글게 */
     border-radius: 50%;
     /* 글로우효과 */
-    box-shadow: 0 0 30px 10px rgb(204, 180, 241);
+    box-shadow: 0 0 30px 10px lightgreen;
 }
 
 /* body에 오버시 전체 opacity 보이게하기 */
@@ -226,7 +222,7 @@ padding과 border 때문에 숨겨지지 않음!
     border: 2px solid #fff;
     padding: 15px;
     border-radius: 15px;
-    background-color: rgba(55, 62, 188, 0.4);
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 /* .cbx에 오버스 글자박스 보이기 */
@@ -265,10 +261,6 @@ padding과 border 때문에 숨겨지지 않음!
     padding: 50px 0;
     text-align: center;
     color: #fff;
-    font-family: 'Black Han Sans', sans-serif;
-    text-shadow: 2px 2px 3px #000;
-    letter-spacing: 3px;
-    font-weight: normal;
 }
 
 /* 동영상박스 */
@@ -296,14 +288,8 @@ padding과 border 때문에 숨겨지지 않음!
     position: absolute;
     right: 3%;
     /* 부모는? .page */
-    font-size: 20px;
+    font-size: 30px;
     z-index: 99999;
-    font-family: 'Single Day', cursive;
-    background-color: rgb(251, 251, 251);
-    color: #333;
-    padding: 0.7%;
-    border-radius: 20px;
-    box-shadow: 1px 1px 5px rgb(0, 13, 255);
 }
 /* 가상클래스로 화살표모양 넣기 */
 #pg1 .gobtn::after{
@@ -321,6 +307,7 @@ padding과 border 때문에 숨겨지지 않음!
 }
 /* 오버시 a변경 */
 .gobtn:hover{
-    color: #fff;
-    background-color: royalblue;
+    color: hotpink;
+    text-decoration: overline;
+    text-decoration-style: wavy;
 }
