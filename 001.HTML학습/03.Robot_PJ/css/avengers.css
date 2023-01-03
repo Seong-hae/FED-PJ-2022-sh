@@ -62,7 +62,20 @@ html,body{
     font-weight: normal;
     text-align: center;
     /* 위아래 패딩 */
-    padding: 50px 0;  
+    padding: 50px 0; 
+
+    /* 트랜스폼
+    -> y축 상단이동 + X축회전 90도 + 스케일 0(안보임) */
+    transform: translateY(-200px) rotateX(90deg) scale(0);
+
+    /* 트랜지션 */
+    transition: transform 3s ease-in-out;
+
+}
+/* 오버시 타이틀 트랜스폼 */
+body:hover .tit{
+    /* 트랜스폼 : 원래위치로! 그리고 x축 회전, 원래크기!  */
+    transform: translateY(0) rotateX(720deg) scale(1);
 }
 
 /* 1. 페이지박스 공통 */
@@ -124,6 +137,7 @@ html,body{
     /* 처음에 투명 */
     opacity: 0;
     
+
     /* 트랜지션 : 속시이지 */
     transition: .8s ease-in-out;
 
@@ -151,6 +165,16 @@ html,body{
     border-radius: 50%;
     /* 글로우효과 */
     box-shadow: 0 0 30px 10px lightgreen;
+
+
+    /* 트랜지션 : 속시이지 trs */
+    transition: transform .8s ease-in-out;
+}
+
+/* 오버시 이미지 변경 */
+body:hover .cbx>img{
+    /* 트랜스폼 회전하기 tfry */
+    transform: rotateY(720deg);
 }
 
 /* body에 오버시 전체 opacity 보이게하기 */
