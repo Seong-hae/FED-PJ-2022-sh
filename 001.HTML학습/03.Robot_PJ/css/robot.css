@@ -291,19 +291,23 @@ body *{
     bottom: -135px;
     width: 90px;
     height: 135px;
-    outline: 2px dashed blue;
+    /* 회전축변경 : 세로변경 top */
+    transform-origin: top;
+    /* outline: 2px dashed blue; */
 }
 /* 왼쪽속 배경이미지 */
 .a1 span::after{
+    left: -5px;
+    transform: rotate(10deg);
     background: url(../images/hand_left.png) 
     no-repeat bottom/100%;
-    left: -5px;
 }
 /* 왼쪽속 배경이미지 */
 .a2 span::after{
+    right: -6px;
+    transform: rotate(-10deg);
     background: url(../images/hand_right.png) 
     no-repeat bottom/100%;
-    right: -6px;
 }
 /* 왼팔 */
 .a1{
@@ -396,7 +400,7 @@ body *{
     border-top: 20px solid #222;
 
     /* 선형 그라데이션 */
-    background-image: linear-gradient(-60deg, rgb(55, 38, 56), rgb(248, 248, 248));
+    background-image: linear-gradient(-90deg, rgb(55, 38, 56), rgb(248, 248, 248));
 }
 /* 왼다리 */
 .l1{
@@ -427,6 +431,36 @@ body *{
     transform: rotate(21deg);
 }
 /* TV */
+.tv{
+    top: 50px;
+    left: 10px;
+    width: 180px;
+    height: 138px;
+    border-radius: 5px;
+    background: url(../images/tv.jpg) no-repeat center/cover;
+}
+/* 스크린 */
+.screen{
+    position: absolute;
+    top: 14px;
+    left: 9px;
+    width: 129px;
+    height: 100px;
+    border-radius: 15px;
+    background-color: #000;
+    /* 자식요소 아이프레임 넘치는 부분 숨기기 */
+    overflow: hidden;
+}
+/* 동영상 iframe */
+.screen iframe{
+    position: absolute;
+    top: 0px;
+    left: -19px;
+    width: 174px;
+    height: 100px;
+    /* 아이프레임 기본보더없앰 */
+    border: none;
+}
 
 /*************************** 3. 하단영역 ***************************/
 
