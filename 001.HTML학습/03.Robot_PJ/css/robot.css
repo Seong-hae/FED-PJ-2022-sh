@@ -312,20 +312,20 @@ body *{
 /* 왼팔 */
 .a1{
     left: -110px;
-    transform: rotate(30deg);
+    transform: rotate(10deg);
 }
 /* 왼팔하단 */
 .a1 span{
-    transform: rotate(20deg);
+    transform: rotate(-10deg);
 }
 /* 오른팔 */
 .a2{
     right: -110px;
-    transform: rotate(-30deg);
+    transform: rotate(-10deg);
 }
 /* 오른팔하단 */
 .a2 span{
-    transform: rotate(-20deg);
+    transform: rotate(10deg);
 }
 
 /* 다리공통 */
