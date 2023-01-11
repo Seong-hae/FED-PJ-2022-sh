@@ -11,6 +11,16 @@
     font-family: 'Orbitron', sans-serif;
 */
 
+/* 전체 부드러운 스크롤 */
+html{
+    scroll-behavior: smooth;
+}
+
+/* 전체 가로스크롤방지 */
+html, body{
+    overflow-x: hidden;
+}
+
 
 /* 초기화 */
 html, body, h1, h2, p, ol, ul{
@@ -119,6 +129,15 @@ body{
         박스보더가 5px이므로 양쪽 합은 10px 이다
         이것을 빼니깐 90px인 것이다!
     */
+    text-decoration: none;
+}
+/* 버튼 마우스 오버시 */
+.btnTop:hover{
+    background-color: #ff0;
+    border-style: inset;
+}
+.btnTop:hover a{
+    color: red;
 }
 
 /*************************** 2. 메인영역 ***************************/
@@ -651,4 +670,29 @@ body{
 
 
 /*************************** 3. 하단영역 ***************************/
+#info{
+    /* 글자셋팅 */
+    color: #fff;
+    font: 30px 'Black Ops One', sans-serif;
+    text-shadow: 2px 2px 2px #000;
 
+    /* 박스셋팅 */
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 50px;
+}
+
+/* 속박스 가상요소로 아이콘 모양 넣기 */
+.info::before{
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    background: pink url(../images/robot_03.png) no-repeat;
+    background-position: -7px 1px;
+    background-size: 50px;
+    /* 인라인요소간 세로정렬 */
+    vertical-align: top;
+}
