@@ -75,26 +75,56 @@ body{
 /* 2-2. 예고편 선택메뉴 */
 .mlist{
     position: absolute;
-    width: 50%;
-    bottom: 30px;
+    width: 702px;
+    bottom: 61px;
     left: 50%;
-    transform: translatex(-50%);
+    transform: translatex(-49%);
+
+    /*앱솔루트 부모자격이 있는 요소의 overflow가 적용됨! */
+    overflow: hidden;
 }
 /* 선택메뉴 ul */
 .mlist ul{
     /* 플렉스박스 */
     display: flex;
+    justify-content: space-between;
 }
 /* 선택메뉴 상위li */
 .mlist ul>li{
-    flex: 1;
-    /* 등분할 설정 */
+    
 }
 /* 포스터 이미지 */
 .mlist img{
-    width: 100%;
-    height: 100%;
+    width: 99px;
+    height: 140px;
 }
+
+/* 영화정보박스 */
+.movtxt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: absolute;
+    top: 100%;
+    width: 99px;
+    height: 140px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    /* 글자셋팅 */
+    font-family: 'Cute Font', cursive;
+    font-size: 14px;
+    line-height: 2;
+
+    /* 트랜지션: 속시이지 */
+    transition: top .5s cubic-bezier(0.76, -0.01, 0.24, 1.05);
+}
+/* 상위 li에 마우스 오버시 영화정보 올라오기 */
+.mlist ul>li:hover .movtxt{
+    top: 0;
+}
+
 
 
 
