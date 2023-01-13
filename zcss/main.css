@@ -4,6 +4,11 @@
 html{
     scroll-behavior: smooth;
     /* #아이디명 스크롤 이동시 부드럽게 애니메이션 이동함! */
+    font-size: 10px;
+    /* rem계산시 쉽도록 10px */
+}
+body{
+    overflow: hidden;
 }
 
 /* 상단영역 */
@@ -17,6 +22,13 @@ html{
     /* 맨위로 올리기 */
     z-index: 9999;
 }
+/* ul 초기화 (3무) */
+ul,ol{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
 
 /******************** GNB메뉴 ********************/
 /* GNB박스 width 크기를 주고 마영오! */
@@ -24,12 +36,7 @@ html{
     width: 600px;
     margin: 0 auto;
 }
-/* ul 초기화 (3무) */
-.gnb ul{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
+
 /* li 옆으로 흐르게 float */
 .gnb li{
     float: left;
@@ -47,6 +54,7 @@ html{
     /* 글자색, 밑줄없앰 */
     color: lime;
     text-decoration: none;
+    white-space: nowrap;
 
     font-size: 30px;
     /* 그림자로 글자 테두리주기
@@ -66,10 +74,6 @@ body {
     height: 100%;
     /* 보이는 화면에 기준하여 높이값을 설정함
 -> 직계 하위 자식요소가 높이값을 %로 설정할 때 body가 기준이 된다!  */
-}
-body {
-    /* 패딩탑 pt */
-    /* padding-top: 50px; */
 }
 /* 페이지박스 : div 블록박스 */
 .mybox {
@@ -98,9 +102,12 @@ body {
 .pwrap{
     position: relative;
     top: 300px;
+    width: 90%;
     height: calc(100% - 350px);
     /* 부모높이값보다 300px만틈 조금 더 그 크기를 뺀
     높이값은 calc()로 계산한다! */
+
+    display: flex;
 
     background-color: rgba(255, 255, 255, 0.5);
     /* 둥근모서리 */
@@ -109,6 +116,36 @@ body {
     /* 양쪽 마진이 auto면 양 쪽을 등분해서 가로 중앙이 된다! */
     margin: 0 auto;
 }
+/* .prwrap 하위 .part박스 */
+.part{
+    flex: 1;
+    /* 1:1 비율로 등분할! */
+    padding: 50px;
+}
+/* 서브타이틀 */
+.part h2{
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 4rem;
+    text-align: center;
+    text-shadow: 2px 2px 2px #000;
+}
+/* .part a요소 */
+.part a{
+    color: #222;
+    text-decoration: none;
+    font-size: 3.5rem;
+    line-height: 1.7;
+}
+
+/* pg1 - 공통프로젝트 아이콘 */
+#pg1 .part a::before{
+    content: '🥰';
+    margin-right: 10px;
+}
+
 /* h1요소 */
 .tit {
     /* 기본마진 없앰 */
