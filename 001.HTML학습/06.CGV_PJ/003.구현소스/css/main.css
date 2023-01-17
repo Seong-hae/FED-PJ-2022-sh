@@ -53,7 +53,7 @@ body{
 /* 1-2.GNB메뉴 */
 .gnb{
     position: absolute;
-    bottom: 15px;
+    bottom: 10px;
     right: 10px;
 }
 /* ul박스 */
@@ -65,6 +65,8 @@ body{
 .gnb ul>li{
     position: relative;
     /* 부모자격 : .smenu */
+    padding-bottom: 5px;
+    /* 서브메뉴와 공간연결을 위해 하단 패딩 줌! */
 }
 /* 상위 li 두번째부터 */
 .gnb ul>li+li{
@@ -72,8 +74,19 @@ body{
 }
 /* 상위메뉴 a */
 .gnb ul>li>a{
+    /* 트랜스폼 적용위해서 인라인블록 줬다 */
+    display: inline-block;
     font-size: 2rem;
+    /* 트랜지션 */
+    transition: .3s;
 }
+/* 오버시 변경 */
+.gnb ul>li:hover>a{
+    transform: scale(1.3);
+    color: aquamarine;
+    animation: titAni .5s ease-in infinite alternate;
+}
+
 
 /* 서브메뉴 */
 .smenu{
@@ -134,7 +147,23 @@ body{
     /* 오른쪽 끝으로 보내기 */
     float: right;
 }
+/* 예매 */
+.gnb ul>li:nth-child(2) .smenu a:hover::after{
+    content: '🎃';
+}
+/* 극장 */
+.gnb ul>li:nth-child(3) .smenu a:hover::after{
+    content: '🎨';
+}
+/* 이벤트&컬쳐 */
+.gnb ul>li:nth-child(4) .smenu a:hover::after{
+    content: '💋';
+}
 
+/* 서브메뉴 li보더 상단 구분선 클래스 */
+.bdt{
+    border-top: 1px solid #ccc;
+}
 
 
 
