@@ -22,19 +22,19 @@
             flex: 1;
         }
         .st2 li:nth-child(1){
-            background: url(./lim_imgs/1.jpg) no-repeat center/cover;
+            background: url(./images/main1-1.jpg) no-repeat center/cover;
         }
         .st2 li:nth-child(2){
-            background: url(./lim_imgs/2.jpg) no-repeat center/cover;
+            background: url(./images/main2-2.jpg) no-repeat center/cover;
         }
         .st2 li:nth-child(3){
-            background: url(./lim_imgs/3.jpg) no-repeat center/cover;
+            background: url(./images/main3-3.jpg) no-repeat center/cover;
         }
         .st2 li:nth-child(4){
-            background: url(./lim_imgs/4.jpg) no-repeat center/cover;
+            background: url(./images/main4-4.jpg) no-repeat center/cover;
         }
         .st2 li:nth-child(5){
-            background: url(./lim_imgs/5.jpg) no-repeat center/cover;
+            background: url(./images/main5-5.jpg) no-repeat center/cover;
         }
 
         .st2 .stg{
@@ -42,46 +42,40 @@
             top: 0;
             width: 20%;
             height: 100%;
+            opacity: 0;
             transition: 1s ease-in-out;
         }
-        .st2 li:hover .stg{
+        body .st2 li:hover .stg{
+            left: 0;
+            width: 100%;
             opacity: 1;
+            z-index: 1;
         }
         
         .st2 li:nth-child(1) .stg{
             left: 0;
-            background: url(./lim_imgs/11.jpg) no-repeat fixed center/cover;
+            background: url(./images/main1.jpg) no-repeat fixed center/cover;
         }
-        .st2 li:nth-child(1):hover .stg{
-            width: 100%;
-            z-index: 1;
-        }
-
         .st2 li:nth-child(2) .stg{
             left: 20%;
             right: 40%;
-            background: url(./lim_imgs/22.jpg) no-repeat fixed center/cover;
-        }
-        .st2 li:nth-child(2):hover .stg{
-            left: 0;
-            width: 100%;
-            z-index: 1;
+            background: url(./images/main2.jpg) no-repeat fixed center/cover;
         }
 
         .st2 li:nth-child(3) .stg{
             left: 40%;
             right: 60%;
-            background: url(./lim_imgs/33.jpg) no-repeat fixed center/cover;
+            background: url(./images/main3.jpg) no-repeat fixed center/cover;
         }
         .st2 li:nth-child(4) .stg{
             left: 60%;
             right: 80%;
-            background: url(./lim_imgs/44.jpg) no-repeat fixed center/cover;
+            background: url(./images/main4.jpg) no-repeat fixed center/cover;
         }
         .st2 li:nth-child(5) .stg{
             left: 80%;
             right: 100%;
-            background: url(./lim_imgs/55.jpg) no-repeat fixed center/cover;
+            background: url(./images/main5.jpg) no-repeat fixed center/cover;
         }
     </style>
 </head>
