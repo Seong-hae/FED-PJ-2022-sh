@@ -49,6 +49,10 @@
 
 /* 500px 이하 */
 @media screen and (max-width:500px){
+    html,body{
+        width: 100vw;
+        overflow-x: hidden;
+    }
     .link{
         position: static;
         text-align: center;
