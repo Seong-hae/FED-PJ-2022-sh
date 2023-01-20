@@ -78,6 +78,7 @@
     }
     /* 상단영역 */
     .top{
+        position: relative;
         height: 80px;
     }
 
