@@ -288,6 +288,9 @@ aside.tmenu{
     border: none;
     font-size: 40px;
     transform: scaleX(1.5);
+    
+    /* 숨기기 */
+    display: none;
 }
 
 
