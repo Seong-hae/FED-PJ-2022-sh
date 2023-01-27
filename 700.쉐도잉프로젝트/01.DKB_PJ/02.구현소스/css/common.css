@@ -71,50 +71,59 @@ nav.gnb ul{
     line-height: 2rem;
 }
 
-/* GNB 서브메뉴 배경 상위메뉴 li에 가상요소로 만들기
-서브메뉴가 있는 li에 sm이름의 클래스를 준다 */
-.gnb>ul>li.sm::before{
-    content: '';
-    position: absolute;
-    top: 129px;
-    left: 0;
-    width: 100%;
-    /* z-index: -1; */
-    /* 부모는? */
-    height: 0;
-    background-color: #fff;
-    /* 트랜지션 */
-    transition: .45s ease-out;
-}
-/* 상위메뉴 오버시에 서브배경 보이기 */
-.gnb>ul>li.sm:hover::before{
-    height: 120px;
-    border-bottom: 2px solid red;
-    transition-duration: .3s;
-}
+/* 모바일에서는 오버시 설정이 적용되지 않도록
+미디어쿼리 min-width사용한 구역에 넣어준다! 
+-> 780px 이상일때만 적용됨!*/
+@media screen and (min-width:780px) {
 
-/* 상위메뉴 li오버시 서브메뉴 보이기 */
-/* 프로그램소개 */
-.gnb>ul>li.sm:nth-child(1):hover::before{
-    height: 120px;
-}
-.gnb>ul>li.sm:nth-child(1):hover .smenu{
-    height: 100px;
-}
-/* 동영상 */
-.gnb>ul>li.sm:nth-child(3):hover::before{
-    height: 150px;
-}
-.gnb>ul>li.sm:nth-child(3):hover .smenu{
-    height: 130px;
-}
-/* 사진첩 */
-.gnb>ul>li.sm:nth-child(4):hover::before{
-    height: 90px;
-}
-.gnb>ul>li.sm:nth-child(4):hover .smenu{
-    height: 70px;
-}
+
+    /* GNB 서브메뉴 배경 상위메뉴 li에 가상요소로 만들기
+    서브메뉴가 있는 li에 sm이름의 클래스를 준다 */
+    .gnb>ul>li.sm::before{
+        content: '';
+        position: absolute;
+        top: 129px;
+        left: 0;
+        width: 100%;
+        /* z-index: -1; */
+        /* 부모는? */
+        height: 0;
+        background-color: #fff;
+        /* 트랜지션 */
+        transition: .45s ease-out;
+    }
+    /* 상위메뉴 오버시에 서브배경 보이기 */
+    .gnb>ul>li.sm:hover::before{
+        height: 120px;
+        border-bottom: 2px solid red;
+        transition-duration: .3s;
+    }
+
+    /* 상위메뉴 li오버시 서브메뉴 보이기 */
+    /* 프로그램소개 */
+    .gnb>ul>li.sm:nth-child(1):hover::before{
+        height: 120px;
+    }
+    .gnb>ul>li.sm:nth-child(1):hover .smenu{
+        height: 100px;
+    }
+    /* 동영상 */
+    .gnb>ul>li.sm:nth-child(3):hover::before{
+        height: 150px;
+    }
+    .gnb>ul>li.sm:nth-child(3):hover .smenu{
+        height: 130px;
+    }
+    /* 사진첩 */
+    .gnb>ul>li.sm:nth-child(4):hover::before{
+        height: 90px;
+    }
+    .gnb>ul>li.sm:nth-child(4):hover .smenu{
+        height: 70px;
+    }
+
+
+} /* 780px 이상일떄 오버시 적용! */
 
 
 /* 가상요소로 밑줄 애니만들기
@@ -291,6 +300,10 @@ aside.tmenu{
     
     /* 숨기기 */
     display: none;
+}
+/* 햄버거모양 가상요소넣기 */
+.ham::before{
+    content: '≡';
 }
 
 
