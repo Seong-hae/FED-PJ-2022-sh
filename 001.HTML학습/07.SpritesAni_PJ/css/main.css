@@ -38,6 +38,7 @@ body {
     color: #fff;
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 52px;
+    z-index: 1;
 }
 
 /* 2.메뉴 */
@@ -67,6 +68,14 @@ body {
 }
 
 /* 3. TV셋 */
+.tvset{
+    /* 부모자격 - .screen */
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    background: url(../images/tvset.png) no-repeat;
+    margin: 0 auto;
+}
 
 /* 스크린 */
 
