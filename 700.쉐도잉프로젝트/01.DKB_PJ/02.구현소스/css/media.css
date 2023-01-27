@@ -88,14 +88,14 @@
         background-color: rgb(0, 0, 0,0.5);
         z-index: 9999;
     }
-    
+
     /* 플렉스박스 방향을 세로로 변경! */
     nav.gnb ul{
         flex-direction: column;
         text-align: center;
         margin-top: 15vh;
     }
-    /*  */
+    /* GNB상위메뉴 a변경 */
     .gnb>ul>li>a{
         color: #fff;
         font-size: 5vh;
