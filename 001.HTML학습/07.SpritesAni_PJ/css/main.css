@@ -85,7 +85,10 @@ body {
     left: 415px;
     width: 453px;
     height: 228px;
-    background-color: #f00;
+
+    /* 배경넣기 */
+    background:url(../images/street.jpg) repeat-x;
+    background-size: auto 100%;
 }
 
 /* 스크린배경이동 키프레임 */
