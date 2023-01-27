@@ -74,10 +74,19 @@ body {
     width: 1280px;
     height: 720px;
     background: url(../images/tvset.png) no-repeat;
+    background-position: -35px 0;
     margin: 0 auto;
 }
 
 /* 스크린 */
+.screen{
+    position: absolute;
+    top: 213px;
+    left: 415px;
+    width: 453px;
+    height: 228px;
+    background-color: #f00;
+}
 
 /* 스크린배경이동 키프레임 */
 
