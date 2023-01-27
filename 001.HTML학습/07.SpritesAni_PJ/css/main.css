@@ -97,7 +97,7 @@ body {
 /* 스크린배경이동 키프레임 */
 @keyframes street {
     to{
-        background-position: -387px 0;
+        background-position: -388px 0;
     }
 }
 
@@ -149,6 +149,9 @@ body {
 
         [ 여러줄 애니메이션 처리법 ]
         배경이미지 이동을 x,y축으로 분리하여 셋팅함
+        -> 시간설정은 x축은 적당히 설정 후 y축은 x축 애니시간*줄수로 설정한다!
+
+        예) x축 애니를 2초로 설정 후 y축은 5줄이면 -> 2초*5줄=10초
 
         1. x축이동 : steps(장면수)
             background-position-x : 값;
@@ -221,6 +224,7 @@ body {
     animation: 
     spani4X 1s steps(5) infinite,
     spani4Y 3s steps(3) infinite;
+    /* y축은 x축 애니시간*줄수 */
 
 }
 
@@ -252,6 +256,36 @@ body {
          */
 
 /* 3-4. 흐르는 자막 */
+.fcap{
+    position: absolute;
+    /* 2배로 늘리기 */
+    width: 200%;
+}
+.fcap ol{
+    display: flex;
+
+    /* 줄바꿈방지 */
+    white-space: nowrap;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    outline: 4px dashed red;
+
+}
+.fcap li{
+    flex: 1;
+    /* 플렉스자식요소 등분할 */
+    text-align: center;
+
+    font: bold 14px/20px Verdana;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+
+
+    outline: 1px dotted greenyellow;
+}
 
 /* 흐르는 글자 키프레임 */
 /* 키프레임 */
