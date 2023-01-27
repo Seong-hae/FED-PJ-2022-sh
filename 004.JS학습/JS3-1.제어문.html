@@ -414,9 +414,13 @@
             // 코드변수
             var hcode = `<h2>${opt}단</h2>`;
 
-            hcode += `${opt} × 1 = ${opt*1}<br>`;
-            hcode += `${opt} × 2 = ${opt*2}<br>`;
-            hcode += `${opt} × 3 = ${opt*3}<br>`;
+            // for문
+            // for(시;한;증){코드}
+            for(var i=1;i<10;i++){
+                // console.log("ㅎㅎㅎ",i);
+                hcode += `${opt} × ${i} = ${opt * i}<br>`;
+            } //////////// for문 ////////////
+
 
             // 5. 화면출력하기
             tg.innerHTML = hcode;
