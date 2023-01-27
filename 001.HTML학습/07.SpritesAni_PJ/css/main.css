@@ -89,15 +89,43 @@ body {
     /* 배경넣기 */
     background:url(../images/street.jpg) repeat-x;
     background-size: auto 100%;
+
+    /* 애니메이션: 이시이지반방마 */
+    animation: street 4s linear infinite ;
 }
 
 /* 스크린배경이동 키프레임 */
+@keyframes street {
+    to{
+        background-position: -387px 0;
+    }
+}
 
 /* 키프레임 */
 
 /* 3-1.걷는존 */
+.spani1{
+    position: relative;
+    width: 100px;
+    height: 176px;
+    margin: 0 auto;
+    margin-top: 25px;
+    background: url(../images/spAni03.png);
+    background-size: auto 100%;
+
+
+
+    outline: 5px solid red;
+}
 
 /* 걷는존 키프레임 */
+@keyframes spani1 {
+    to{
+        background-position: -797px 0;
+    }
+    /* 배경이미지 X축 이동일 경우 줄였을때 이미지 전체 가로크기를
+    마이너스 값으로 써주면 된다! */
+}
 
 /* 키프레임 */
 
