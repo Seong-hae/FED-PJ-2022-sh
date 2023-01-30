@@ -1,70 +1,63 @@
 @charset "utf-8";
-/* 공통 모듈 디자인 CSS - common.css
-=> 상단영역, 하단영역 디자인 */
+/* 공통모듈 디자인 CSS - common.css
+-> 상단영역, 하단영역 디자인 */
 
-/**************************** 1.상단영역 ****************************/
-/* 최상위 겉박스 */
-#top{
+/****************** 1.상단영역 ******************/
+/* 겉박스 */
+#top {
+    position: relative;
+    z-index: 9999;
+    /* 메인영역보다위 - 이유: GNB서브메뉴가 위로와야함 */
     background-color: #fff;
+    /* 하단보더 */
     border-bottom: 1px solid #ccc;
 }
-
-/* 개별 속박스 */
-.top{
+/* 속박스 */
+.top {
     /* position: relative; */
-    /* .tmenu(앱솔루트)의 부모가 되기 위함! */
-    /* 잠깐 주석처리한 이유 : 하위메뉴의 박스가 화면 전체를 덮기 위해서는 가로값100%를 줘야함!
-    =>근데 부모자격을 찾아 올라가다보니까 얘가 있네? 그래서 부모크기만큼만! 덮어버림!
-    =>그래서 빼버리고 화면전체를 부모로 하게끔 만들기 */
+    /* 부모자격 - .tmenu */
     height: 128px;
 }
 
 /* 속박스 안에 로고와 탑메뉴를 감싼 박스 */
-.tarea{
+.tarea {
     position: relative;
     /* 부모자격 - .tmenu */
 }
 
-
 /* 1-1.로고 */
-h1.logo{
-    /* 방법1. 박스자체를 좀 작게 만들어서 마영오 주기 */
-    /* outline: 1px solid red; */
+h1.logo {
     width: 100px;
     margin: 0 auto;
     padding-top: 20px;
-    /* 마진탑을 주면 부모 바깥으로 나가! 밀어버려! 그러니까 패딩을 줘야 함 */
-
-    /* 방법2. 박스의 컨텐츠를 가운데로 정렬하기
-    text-align: center; */
-    /* 종속선택자 쓰는 이유: 그게 어떤 태그인지...내가 알아보려고 씀 */
+    /* outline: 1px solid red; */
 }
-
+/* 로고 이미지 */
+.logo img {
+    width: 100px;
+}
 /* 1-2.GNB메뉴 */
-nav.gnb ul{
-    /* 플렉스 박스 : 흐르게 할 요소의 '직계 부모박스'가 플렉스 박스가 됨! */
+nav.gnb ul {
+    /* 플렉스박스 : 흐르게할 요소의 직계부모 */
     display: flex;
     /* 진행방향 정렬 */
     justify-content: center;
-    /* 마진탑은 부모인 nav.gnb 바깥으로 나가서 위의 박스를 밀고 있다! */
+    /* 마진탑은 부모인 nav.gnb 바깥으로
+    나가서 위의 박스를 밀고 있다! */
     margin-top: 27px;
 }
 
-/* 로고 이미지 */
-.logo img{
-    width: 100px;
-}
-
-/* gnb 최상위 li */
-.gnb>ul>li{
-    /* a요소의 패딩을 li로 이동함! */
+/* GNB 최상위 li */
+.gnb > ul > li {
+    /* a요소의 마진을 li로 이동함! */
     margin: 0 10px;
 }
 
-/* gnb의 a요소 */
-.gnb>ul>li>a{
-    /* li가상요소 서브배경보다 위 순서대로 나중에 그려진 Static 아닌 요소가 위 */
+/* GNB a요소 */
+.gnb > ul > li > a {
     position: relative;
+    /* li가상요소 서브배경 보다 위
+    순서대로 나중에 그려진 static아닌요소가 위 */
     color: #222;
     text-decoration: none;
     font-size: 1.7rem;
@@ -72,222 +65,201 @@ nav.gnb ul{
 }
 
 /* 모바일에서는 오버시 설정이 적용되지 않도록
-미디어쿼리 min-width사용한 구역에 넣어준다! 
--> 780px 이상일때만 적용됨!*/
-@media screen and (min-width:780px) {
+미디어쿼리 min-width사용한 구역에 넣어준다!
+-> 780px 이상일때만 적용됨! */
+@media screen and (min-width: 780px) {
 
-
-    /* GNB 서브메뉴 배경 상위메뉴 li에 가상요소로 만들기
-    서브메뉴가 있는 li에 sm이름의 클래스를 준다 */
-    .gnb>ul>li.sm::before{
-        content: '';
+    /* GNB 서브메뉴 배경 
+    상위메뉴 li에 가상요소로 만들기
+    서브메뉴가 있는 li에 sm이름의 클래스를 준다! */
+    .gnb > ul > li.sm::before {
+        content: "";
         position: absolute;
         top: 129px;
         left: 0;
-        width: 100%;
         /* z-index: -1; */
+        width: 100%;
         /* 부모는? */
         height: 0;
         background-color: #fff;
         /* 트랜지션 */
-        transition: .45s ease-out;
+        transition: 0.45s ease-out;
     }
-    /* 상위메뉴 오버시에 서브배경 보이기 */
-    .gnb>ul>li.sm:hover::before{
-        height: 120px;
+    /* 상위메뉴 오버시 서브배경보이기 */
+    .gnb > ul > li.sm:hover::before {
         border-bottom: 2px solid red;
-        transition-duration: .3s;
+        transition-duration: 0.3s;
     }
 
     /* 상위메뉴 li오버시 서브메뉴 보이기 */
+
     /* 프로그램소개 */
-    .gnb>ul>li.sm:nth-child(1):hover::before{
+    .gnb > ul > li:first-child:hover::before {
         height: 120px;
     }
-    .gnb>ul>li.sm:nth-child(1):hover .smenu{
+    .gnb > ul > li:first-child:hover .smenu {
         height: 100px;
     }
     /* 동영상 */
-    .gnb>ul>li.sm:nth-child(3):hover::before{
+    .gnb > ul > li:nth-child(3):hover::before {
         height: 150px;
     }
-    .gnb>ul>li.sm:nth-child(3):hover .smenu{
+    .gnb > ul > li:nth-child(3):hover .smenu {
         height: 130px;
     }
     /* 사진첩 */
-    .gnb>ul>li.sm:nth-child(4):hover::before{
+    .gnb > ul > li:nth-child(4):hover::before {
         height: 90px;
     }
-    .gnb>ul>li.sm:nth-child(4):hover .smenu{
+    .gnb > ul > li:nth-child(4):hover .smenu {
         height: 70px;
     }
-
-
-} /* 780px 이상일떄 오버시 적용! */
-
+} /* 780px 이상일때 오버시 적용! */
 
 /* 가상요소로 밑줄 애니만들기
 대상선택:
-1. GNB메뉴의 상위메뉴 a 요소
-2. 사이드메뉴의 1,2번 li하위 a요소
-*/
-.gnb>ul>li>a::after{
-    content: '';
+1. GNB메뉴의 상위메뉴 a요소 */
+.gnb > ul > li > a::after {
+    content: "";
     display: block;
 
-    /* 변경속성 - 바가 중앙에 있음 */
+    /* 변경속성 - 바가 중앙에 있음! */
     width: 0%;
     margin-left: 50%;
+
     height: 3px;
+
     margin-top: 15px;
     background-color: #f00;
-    /* 트랜지션 : 속시이지 trs */
-    transition: all .3s;
+    /* 트랜지션: 속시이지 trs */
+    transition: all 0.3s;
 }
-/* 오버시 바 보이기 - 중앙에서 펼쳐짐! */
-.gnb>ul>li:hover>a::after{
+/* 오버시 바 보이기 - 중앙에서 펼져짐! */
+.gnb > ul > li:hover > a::after {
     width: 100%;
     margin-left: 0%;
 }
 
-
-
-
 /* GNB 서브메뉴 */
-.smbx{
+.smbx {
     position: relative;
-    /* .smenu 앱솔루트의 부모자격 줌 */
+    /* .smenu 앱솔루트의 부모! */
 }
-.smenu{
+.smenu {
     position: absolute;
-    /* 가로방향 중앙 위치(크기들이 다 다르더라도 가운데에 오게 맞출 수 있음!) */
+    /* 가로방향 중앙위치 */
     left: 50%;
     transform: translateX(-50%);
-    /* width: 100%; => 100퍼 줬더니 글자가 긴 애들은 짤려서 줄바꿈됨 ㅠㅠ*/
 
-    /* 줄바꿈 방지 */
+    text-align: center;
+
+    /* 줄바꿈방지 */
     white-space: nowrap;
     padding: 0 5px;
 
     /* 상단 위치이동 */
     margin-top: 15px;
 
-    text-align: center;
     /* background-color: #fff; */
-
-    /* 숨기기 - 배경색이 없어졌다는 것은, 보이는 자식들은 다 밖으로 나가있다는 것임 */
+    /* 숨기기 */
     height: 0;
     overflow: hidden;
-
     /* 트랜지션 */
-    transition: .4s ease-out;
+    transition: 0.4s ease-out;
 
-    
     /* outline: 2px dashed red; */
 }
 
-
-.smenu a{
+.smenu a {
     display: block;
     /* 트랜스폼은 inline일때 적용안됨! */
     font-size: 1.4rem;
     line-height: 2;
     color: #222;
     text-decoration: none;
-    transition: .3s;
+    /* 트랜지션 */
+    transition: 0.3s;
 }
 /* 서브메뉴 a 오버시 확대 */
-.smenu a:hover{
+.smenu a:hover {
     transform: scale(1.1);
-    /* 쥬변에 아무런 영향을 주지 않는다
-    font-size는 주변에 영향을 미친다. */
     color: orangered;
 }
 
 /* 1-3.탑메뉴 */
-aside.tmenu{
+aside.tmenu {
     position: absolute;
-    /* 부모는? .top에게 부모자격주기! */
     top: 25px;
     right: 0;
+    /* 부모는? .top */
 }
-
 /* 회원가입 등 메뉴 박스 */
-.tmenu ul{
-    /* 플렉스 박스 : 하위 li요소 옆으로 흐르게 만들기! ('직계'부모에게 주는거야~) */
+.tmenu ul {
+    /* 플렉스 박스 : 하위 li요소 옆으로 흐름! */
     display: flex;
+    /* 수직방향 정렬 : 중앙 */
     align-items: center;
 }
-
-/* 사이드메뉴의 '로그인, 회원가입'의 사이 간격 띄우기 */
-.tmenu>ul>li+li{
+.tmenu > ul > li + li {
     margin-left: 10px;
 }
-
 /* 탑메뉴 a */
-.tmenu>ul>li>a{
+.tmenu > ul > li > a {
     color: #222;
     font-size: 1.5rem;
     text-decoration: none;
 }
 
-
 /* sns 메뉴 박스 */
-.tmenu ol{
-    /* 플렉스 박스 : 하위 li요소 옆으로 흐르게 만들기! ('직계'부모에게 주는거야~) */
+.tmenu ol {
+    /* 플렉스 박스 : 하위 li요소 옆으로 흐름! */
     display: flex;
 }
-
 /* sns li박스 */
-.sns li{
+.sns li {
     width: 30px;
     height: 30px;
+    border-radius: 50%;
     background: url(../images/icons.png) no-repeat;
     /* 트랜지션 */
-    transition: .3s;
-    border-radius: 50%;
-    /* 둥근모서리를 주면, 그 안에서만 변화함 */
+    transition: 0.2s;
 }
 
-/* 스프라이츠(Sprites)로 배경이미지 넣기 */
+/* 스프라이츠(Sprites)로 배경이미지 넣기! */
 /* 트위터 */
-.sns li:nth-child(1){
+.sns li:nth-child(1) {
     background-position: 0px 0px;
 }
 /* 트위터 오버시 */
-.sns li:nth-child(1):hover{
+.sns li:nth-child(1):hover {
     background-position: 0px -30px;
 }
-
 /* 인스타그램 */
-.sns li:nth-child(2){
+.sns li:nth-child(2) {
     background-position: -30px 0px;
 }
 /* 인스타그램 오버시 */
-.sns li:nth-child(2):hover{
+.sns li:nth-child(2):hover {
     background-position: -30px -30px;
 }
-
 /* 페이스북 */
-.sns li:nth-child(3){
+.sns li:nth-child(3) {
     background-position: -60px 0px;
 }
 /* 페이스북 오버시 */
-.sns li:nth-child(3):hover{
+.sns li:nth-child(3):hover {
     background-position: -60px -30px;
 }
 
-/* a태그가 쪼그라들어서 안보임! -> a태그 확장~ */
-.sns a{
+/* a요소 확장 */
+.sns a {
     display: block;
-    /* 인라인은 크기 안먹으니까~ */
     width: 100%;
     height: 100%;
-    /* 100% -> 박스를 가득 채워라~ */
 }
 
 /* 모바일 햄버거 버튼 */
-.ham{
+.ham {
     position: absolute;
     top: 15px;
     right: 10px;
@@ -297,8 +269,8 @@ aside.tmenu{
     border: none;
     font-size: 40px;
     transform: scaleX(1.5);
-    
-    /* 숨기기 */
+
+    /* 처음에 숨기기 */
     display: none;
 }
 /* 햄버거모양 가상요소넣기 */
@@ -306,54 +278,54 @@ aside.tmenu{
     content: '≡';
 }
 
-
-/**************************** 2.메인영역 ****************************/
-.cont{
+/****************** 2.메인영역 ******************/
+.cont {
     min-height: 800px;
     /* 자식 요소가 많아지면 자동으로 늘어남! */
 }
-/**************************** 3.하단영역 ****************************/
+
+/****************** 3.하단영역 ******************/
 /* 겉박스 */
-#info{
-    background-color: rgba(255,255,255,.7);
+#info {
+    background-color: rgba(255, 255, 255, 0.7);
 }
 /* 속박스 */
-.info{
+.info {
     position: relative;
+    /* 부모자격 - .brand */
     height: 241px;
 }
-/**************** 3-1. 하단링크 ******************/
-.blink{
+/******* 3-1. 하단링크 *******/
+.blink {
     padding-top: 10px;
 }
 /* 하단링크 리스트 */
-.blink ul{
+.blink ul {
     /* 플렉스박스 */
     display: flex;
     /* 진행방향정렬 */
     justify-content: center;
 }
-.blink li+li{
-    margin-left: 15px;
-}
-.blink a{
+.blink a {
     font-size: 1.4rem;
     text-decoration: none;
     color: #222;
     font-weight: bold;
 }
+.blink li + li {
+    margin-left: 15px;
+}
 /* 오버시 */
-.blink li a:hover{
+.blink li a:hover {
     color: red;
     text-decoration: underline;
 }
 
-
-/**************** 3-2. 회사정보 ******************/
-.addr{
+/******* 3-2. 회사정보 *******/
+.addr {
     padding: 10px;
 }
-.addr address{
+.addr address {
     /* 글자셋팅 */
     font-size: 1.4rem;
     font-style: normal;
@@ -367,26 +339,28 @@ aside.tmenu{
     border: 4px double #222;
 }
 
-/**************** 3-3. 하단로고 ******************/
-.blogo{
+/******* 3-3. 하단로고 *******/
+.blogo {
     text-align: center;
 }
 
-/**************** 3-4. 바로가기 ******************/
-.brand{
+/******* 3-4. 바로가기 *******/
+.brand {
     position: absolute;
     top: 10px;
     right: 0;
+    /* 나의 부모는? .info */
 }
 /* 선택박스 */
-#sel{
+#sel {
     font-size: 1.4rem;
     color: #222;
     font-weight: bold;
+
     padding: 8px;
 }
-/* 선택시(포커스갈때) 브라우저 기본 아웃라인 없애기 */
-#sel:focus{
+/* 선택시(포커스갈때) 브라우저
+기본 아웃라인 없애기 */
+#sel:focus {
     outline: none;
 }
-
