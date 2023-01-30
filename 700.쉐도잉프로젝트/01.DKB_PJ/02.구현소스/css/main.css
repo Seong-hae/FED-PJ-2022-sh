@@ -31,6 +31,7 @@ body{
 .cont{
     overflow: hidden;
     /* 자식요소 위,아래 마진 포함 */
+    position: relative;
 }
 
 /* 전체 캐릭터 박스 */
@@ -206,7 +207,7 @@ body{
 /* 등장글자 이미지 */
 #mvtxt{
     position: absolute;
-    top: 30vh;
+    top: 15vh;
     right: 5vw;
     width: min(20vw,327px);
 }
