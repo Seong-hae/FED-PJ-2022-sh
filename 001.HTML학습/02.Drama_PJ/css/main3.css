@@ -9,32 +9,32 @@ h1.tit{
     text-shadow: 2px 2px 2px #555;
     /* 글자그림자: x y 블러 색 */
 }
+/* 라디오버튼 숨기기 */
+.rdo{
+    display: none;
+}
 /* 메뉴 */
 .menu{
-    text-align: center;
+    /* outline: 1px dashed red; */
+    display: inline-block;
+    width: 49%;
     margin-bottom: 50px;
-    /* 
-        margin - 마진(바깥여백)
-        __________________________
-        margin-bottom: 아래쪽 마진
-        margin-top: 위쪽 마진
-        margin-left: 왼쪽 마진
-        margin-right: 오른쪽 마진
-    */
-}
-/* 메뉴 링크 */
-.menu a{
+    font-size: 24px;
+    font-weight: bold;
     color: #222;
-    text-decoration: none;
+    cursor: pointer;
 }
-/* 메뉴 마우스 오버시 + 클래스 on*/
-.menu a:hover,
-.menu a.on{
+.mn1{
+    text-align: right;
+}
+/* 메뉴 마우스 오버시 + 라디오버튼 체크시*/
+.menu:hover,
+.rdo:checked+.menu{
     color: lightseagreen;
     text-decoration: overline;
 }
 /* 마지막 a요소에 왼쪽보더 주기 */
-.menu a:last-child{
+.menu:last-of-type{
     border-left: 3px solid blue;
     padding-left: 10px;
     margin-left: 5px;
@@ -50,7 +50,7 @@ h1.tit{
     padding: 10px;
 }
 /* 드라마 테이블 */
-#drama{
+.drama>table{
     width: 100%;
     border-collapse: collapse;
     /* 
@@ -61,13 +61,27 @@ h1.tit{
     */
 }
 
+/* 라디오버튼 체크시 보이기/숨기기 */
+#rdo1:checked ~ .drama > table:first-child {
+    display: table;
+}
+#rdo1:checked ~ .drama > table:last-child {
+    display: none;
+}
+#rdo2:checked ~ .drama > table:first-child {
+    display: none;
+}
+#rdo2:checked ~ .drama > table:last-child {
+    display: table;
+}
+
 /* 테이블 이미지 */
-#drama img{
+.drama>table img{
     border-radius: 10px;
     /* 테두리 둥근 모서리 */
 }
 /* 두번째, 네번째 td (짝수) */
-#drama td:nth-child(even){
+.drama>table td:nth-child(even){
     width: 250px;
     /* background-color: red; */
     padding: 10px;
@@ -75,7 +89,7 @@ h1.tit{
     /* 줄간격 */
 }
 /* 드라마 정보 a링크 */
-#drama a{
+.drama>table a{
     color: #222;
     text-decoration: none;
     font-weight: bold;
@@ -84,11 +98,9 @@ h1.tit{
     12pt = 16px 이육사 */
 }
 /* 마우스 오버시 */
-#drama a:hover{
+.drama>table a:hover{
     color: #f00;
     text-decoration: underline;
 }
-
-
 
 
