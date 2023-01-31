@@ -45,7 +45,16 @@
         /* 겉박스 */
         #top{
             position: relative;
+
+            /* 트랜지션: 속시이지 */
+            transition: .4s ease-in-out;
         }
+        /* #top에 오버시 자기자신 */
+        #top:hover{
+            /* 배경색 변경 */
+            background-color: #fff;
+        }
+
         /* #top 가상요소로 배경색넣기 */
         #top::after{
             content: '';
@@ -78,11 +87,34 @@
             outline: 2px dashed yellowgreen;
         }
 
+        /* 로고 */
+        .logo img{
+            height: 50px;
+        }
+        /* 로고 두번째 이미지 처음에 숨김 */
+        /* #top 오버시 첫번째 로고 숨기기 */
+        .logo img:last-child,
+        #top:hover .logo img:first-child{
+            display: none;
+        }
+        /* #top 오버시 두번째 로고 보이기 */
+        #top:hover .logo img:last-child{
+            display: inline;
+        }
+
         /* 네비게이션 박스 */
         .gnb{
             position: relative;
             z-index: 1;
             display: flex;
+            height: 110px;
+            overflow: hidden;
+            /* 트랜지션 */
+            transition: .4s ease-in-out;
+        }
+        /* #top오버시 GNB */
+        #top:hover .gnb{
+            height: 400px;
         }
 
         .gnb dl{
@@ -94,6 +126,14 @@
         /* 최상위메뉴 : dt */
         .gnb dt{
             line-height: 110px;
+        }
+        .gnb dt a{
+            /* 트랜지션: 속시이지 */
+            transition: .4s ease-in-out;
+        }
+        /* #top오버시 dt a 글자색 변경 */
+        #top:hover .gnb dt a{
+            color: #222;
         }
 
         /* 서브메뉴 : dd */
@@ -133,7 +173,10 @@
             <div>
                 <h1 class="logo">
                     <a href="#">
+                        <!-- 오버전 이미지 -->
                         <img src="./images/nav03/logo_w.png" alt="로고">
+                        <!-- 오버시 이미지 -->
+                        <img src="./images/nav03/logo.png" alt="로고">
                     </a>
                 </h1>
             </div>
