@@ -72,7 +72,7 @@
     .smbx,
     .gnb > ul > li > a::after,
     .gnb {
-        /* display: none; */
+        display: none;
     }
     
     /* 탑메뉴도 .top.on일때 나타남! */
