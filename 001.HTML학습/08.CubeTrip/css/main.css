@@ -1,0 +1,298 @@
+@charset "utf-8";
+/* 큐브트립 메인 CSS - main.css */
+
+/* 웹폰트 */
+@import url('https://fonts.googleapis.com/css?family=Black+And+White+Picture|East+Sea+Dokdo|Jua&display=swap');
+/*
+    font-family: 'Black And White Picture', sans-serif;
+    font-family: 'East Sea Dokdo', cursive;
+    font-family: 'Jua', sans-serif;
+*/
+
+/******* 변수셋팅 *******/
+:root{
+    /* 큐브 공통크기 */
+    --csz: 25vw;
+}
+
+
+html,body,h1,h2,ul,p{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #777 30%, #ccc 70%);
+}
+
+/*********************** 1. 전체제목  ***********************/
+.tit{
+    text-align: center;
+    font-family: 'Black And White Picture', sans-serif;
+    color: #fff;
+    font-size: 60px;
+    font-weight: normal;
+    padding-top: 50px;
+    background: url(../images/citybg.png) no-repeat center 20px/auto 85%;
+}
+
+
+/*********************** 2. 메뉴버튼  ***********************/
+.city{
+    position: fixed;
+    top: 5vw;
+    right: 5vw;
+}
+.city ul{
+    width: min(15vw,200px);
+    list-style: none;
+    perspective: 50vw;
+}
+.city li{
+    height: 10vh;
+    /* 보이는 화면의 10% -> 메뉴 6개=60% */
+    background-image: linear-gradient(to right, transparent, blue);
+    /* 축변경 */
+    transform-origin: right;
+    /* 트랜지션: 속시이지 */
+    transition: .3s;
+}
+/* li에 오버시 y축회전하기 */ 
+.city li:nth-child(1):hover{
+    transform: rotateY(45deg);
+    background-image: linear-gradient(to right, transparent, rgb(211, 243, 123));
+}
+.city li:nth-child(2):hover{
+    transform: rotateY(25deg);
+    background-image: linear-gradient(to right, transparent, rgb(243, 131, 123));
+}
+.city li:nth-child(3):hover{
+    transform: rotateY(-35deg);
+    background-image: linear-gradient(to right, transparent, rgb(123, 243, 207));
+}
+.city li:nth-child(4):hover{
+    transform: rotateY(55deg);
+    background-image: linear-gradient(to right, transparent, rgb(123, 155, 243));
+}
+.city li:nth-child(5):hover{
+    transform: rotateY(25deg);
+    background-image: linear-gradient(to right, transparent, rgb(243, 123, 207));
+}
+.city li:nth-child(6):hover{
+    transform: rotateY(-15deg);
+    background-image: linear-gradient(to right, transparent, rgb(123, 205, 243));
+}
+
+.city a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    font: 5vh/10vh 'East Sea Dokdo', cursive;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+}
+
+/*********************** 3. 큐브박스  ***********************/
+/* 큐브 */
+.cube{
+    position: absolute;
+    top: calc(50% - var(--csz)/2);
+    left: calc(50% - var(--csz)/2);
+    /*
+    정중앙계산: 50% - 크기절반
+    calc() 연산시 주의사항 
+    -> +,-는 기호앞뒤 띄어쓰기
+    -> *,/는 붙여써도 됨
+    */
+    width: var(--csz);
+    height: var(--csz);
+
+    /* 
+        [ 입체로 설정하기 ]
+        - 입체로 설정할 요소의 부모박스에 아래와 같이 설정해 준다!
+        transform-style: preserve-3d;
+        - 기본값은 2D설정인 flat
+        - preserve-3d는 3D설정임
+    */
+    transform-style: preserve-3d;
+
+    /* 입체를 잘보이게 하기위해 약간 회전함 */
+    /* transform: rotateX(10deg) rotateY(30deg); */
+
+    /* outline: 2px solid red; */
+}
+
+/* 큐브각면 공통 */
+.cube span{
+    position: absolute;
+    /* 앱솔루트는 자동블록됨! */
+    width: 100%;
+    height: 100%;
+    /* 부모는? .cube */
+
+    /* 투명도 */
+    opacity: 0.8;
+    outline: 1px dashed #000;
+}
+
+/* 1.앞면 : 시티메인 */
+.cube span:nth-child(1){
+    
+    background: url(../images/cityMain.jpg) no-repeat center/cover;
+    /* 화면방향(z축) */
+    transform: translateZ(calc(var(--csz)/2));
+    /* 큐브 사이즈의 절반을 z축의 앞쪽으로 이동시킴 */
+}
+
+/* 2.오른쪽면 : 런던 */
+.cube span:nth-child(2){
+    background: url(../images/London_city.jpg) no-repeat center/cover;
+
+    /* 화면방향(z축) */
+    transform:
+    rotateY(90deg)
+    translateZ(calc(var(--csz)/2));
+    /* 먼저 y축으로 회전한 후, 큐브 사이즈의 절반을 앞쪽으로 이동함 */
+    /* 주의사항 - 돌리고 민거랑 / 밀고 돌린거랑 결과물이 달라짐 */
+
+}
+
+/* 3.뒷면 : 파리 */
+.cube span:nth-child(3){
+    background: url(../images/parisCity.jpg) no-repeat center/cover;
+
+    /* 화면방향(z축) */
+    transform:
+    rotateY(180deg)
+    translateZ(calc(var(--csz)/2));
+    /* 먼저 y축으로 회전한 후, 큐브 사이즈의 절반을 앞쪽으로 이동함 */
+    /* 주의사항 - 돌리고 민거랑 / 밀고 돌린거랑 결과물이 달라짐 */
+
+}
+
+/* 4.왼쪽면 : 베를린 */
+.cube span:nth-child(4){
+    background: url(../images/berlin_city.jpg) no-repeat center/cover;
+
+    /* 화면방향(z축) */
+    transform:
+    rotateY(-90deg)
+    translateZ(calc(var(--csz)/2));
+    /* 먼저 y축으로 회전한 후, 큐브 사이즈의 절반을 앞쪽으로 이동함 */
+    /* 주의사항 - 돌리고 민거랑 / 밀고 돌린거랑 결과물이 달라짐 */
+
+}
+
+/* 5.윗면 : 서울 */
+.cube span:nth-child(5){
+    background: url(../images/seoulCity.jpg) no-repeat center/cover;
+
+    /* 화면방향(z축) */
+    transform:
+    rotateX(90deg)
+    translateZ(calc(var(--csz)/2));
+    /* 먼저 x축으로 회전한 후, 큐브 사이즈의 절반을 앞쪽으로 이동함 */
+    /* 주의사항 - 돌리고 민거랑 / 밀고 돌린거랑 결과물이 달라짐 */
+
+}
+
+/* 6.아랫면 : 뉴욕 */
+.cube span:nth-child(6){
+    background: url(../images/newyorkCity.jpg) no-repeat right/auto 105%;
+
+    /* 화면방향(z축) */
+    transform:
+    rotateX(-90deg)
+    translateZ(calc(var(--csz)/2));
+    /* 먼저 x축으로 회전한 후, 큐브 사이즈의 절반을 앞쪽으로 이동함 */
+    /* 주의사항 - 돌리고 민거랑 / 밀고 돌린거랑 결과물이 달라짐 */
+}
+
+/* 큐브회전 클래스 */
+.cube-ani{
+    /* 애니메이션: 이시이지반방마 */
+    animation: cubeAni 4s linear infinite;
+    /* 애니메이션 처음에 멈춰있기 */
+    animation-play-state: paused;
+}
+/* 큐브회전 작동 클래스 + .on */
+.cube-ani.on{
+    /* 애니메이션 작동하기 */
+    animation-play-state: running;
+}
+
+
+/* 큐브회전 키프레임 */
+@keyframes cubeAni {
+    to{
+        /* x축 양의 방향, y축 음의 방향 */
+        transform:
+        rotateX(370deg) rotateY(-330deg);
+        /* 
+            x축 양의 방향으로 10도에서 출발
+            양의 방향 360도+10도=370도
+            음의 방향 -360도+10도=350도
+            _____________________________
+
+            y축 양의 방향으로 30도에서 출발
+            양의 방향 360도+30도=390도
+            음의 방향 -360도+30도=-330도
+        */
+
+        /* z축 회전도 적용할 수 있음 */
+        /* rotateX(370deg) rotateY(-330deg) rotateZ(360deg); */
+    }
+}
+
+
+/* 4. 도시정보박스 */
+.cbx{
+    position: absolute;
+    top: calc(50% - var(--csz)/2);
+    left: calc(50% - var(--csz)/2);
+    /*
+    정중앙계산: 50% - 크기절반
+    calc() 연산시 주의사항 
+    -> +,-는 기호앞뒤 띄어쓰기
+    -> *,/는 붙여써도 됨
+    */
+    width: var(--csz);
+    height: var(--csz);
+
+    /* 글자설정 */
+    font-family: 'Jua', sans-serif;
+    color: #fff;
+    text-shadow: 0 0 2px #000;
+
+    /* 처음에 투명하게 */
+    opacity: 0;
+
+    /* outline: 2px dashed red; */
+}
+/* 도시정보 속박스 */
+.ctxt{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #fff;
+    /* 크기유지 */
+    box-sizing: border-box;
+}
+/* 도시명 */
+h2.cname{
+    line-height: min(7vw,100px);
+    text-align: center;
+    font-size: min(40px,2.5vw);
+}
+/* 도시설명 */
+p.cinfo{
+    /* 타이틀을 제외한 영역채우기 */
+    height: calc(100% - min(7vw,100px));
+    box-sizing: border-box;
+
+    padding: min(10px,2vw);
+    font-size: min(16px,1vw);
+    line-height: min(28vw,1.5vw);
+    background-color: rgba(0, 0, 0, 0.3);
+}
