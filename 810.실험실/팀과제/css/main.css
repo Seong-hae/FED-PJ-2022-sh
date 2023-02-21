@@ -87,3 +87,23 @@ main.cont{
   /*우선적용!*/
 }
 
+
+
+.eebx{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+.earth{
+  width: 100%;
+  height: 100%;
+}
+.eebx p{
+  color: #fff;
+  font-size: 5rem;
+  position: absolute;
+  z-index: 999;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, -50%);
+}
