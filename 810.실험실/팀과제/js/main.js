@@ -14,7 +14,7 @@ function loadFn(){
      [ GNB메뉴 스크롤 시 색변경 ]
     ******************************************************/
      window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
+        if (window.scrollY > 80) {
             document.querySelector('.top').classList.add("on");
         } else {
             document.querySelector('.top').classList.remove("on");
