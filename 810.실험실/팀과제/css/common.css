@@ -3,14 +3,18 @@
 -> 상단영역, 하단영역 디자인 */
 
 /****************** 1.상단영역 ******************/
-#top{
+.top{
   position: fixed;
   top: 0;
   left: 0;
   z-index: 9999;
   width: 100%;
+  transition: .3s;
 }
-.top{
+.on{
+  background-color: #052a46;
+}
+.topbx{
   display: flex;
   justify-content: space-between;
   align-items: center;
