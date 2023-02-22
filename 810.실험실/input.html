@@ -5,8 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>input연습</title>
+    <!-- 폰트어썸 CDN CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <style>
+
+        .sbx{
+            position: relative;
+            width: 150px;
+            height: 30px;
+            border: 1px solid #000;
+        }
+        #searchbx{
+            border: none;
+            width: 100%;
+            height: 100%;
+            background-color: #fc0;
+        }
+        .sicon{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            color: black;
+            border: 1px solid #000;
+        }
+
+
+    </style>
 </head>
 <body>
+
+
+        <div class="sbx">
+            <input type="text" id="searchbx">
+            <label for="searchbx" class="fa-solid fa-magnifying-glass sicon"></label>
+        </div>
     
 </body>
 </html>

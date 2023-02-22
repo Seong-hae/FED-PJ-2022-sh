@@ -1,4 +1,6 @@
-// JS실험실: 03.배너스타일 JS - ban.js
+// JS실험실: 03.배너스타일2 JS - ban.js
+
+// 쇼핑몰 배너 JS - 01.가로방향 배너 슬라이드 //
 
 // HTML태그 로딩후 loadFn함수 호출! ///
 window.addEventListener("DOMContentLoaded", loadFn);
@@ -64,6 +66,12 @@ function loadFn() {
     // 1-3. 블릿 대상: .indic li
     const indic = document.querySelectorAll(".indic li");
     // console.log(indic);
+
+    // [ 초기화2 - 맨뒤요소 맨앞으로 이동 2번하기! ]
+    // 맨뒤 맨앞이동 함수만들기
+    const chgSeq = () => {
+        
+    }; ////// forEach ////////////////
 
     // 광클금지변수 : 0 - 허용, 1- 불허용
     let prot = 0;
