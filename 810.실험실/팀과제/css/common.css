@@ -47,6 +47,14 @@ nav.gnb ul{
   font-size: 1.8rem;
   font-family: 'Kanit', sans-serif;
 }
+/* 찾기버튼 */
+.gnb .sbx{}
+.gnb .sbx label{
+  text-indent: 99999;
+}
+.gnb .sbx input{
+  
+}
 
 
 /****************** 3.하단영역 ******************/
