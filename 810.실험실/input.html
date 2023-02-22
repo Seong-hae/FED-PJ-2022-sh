@@ -37,6 +37,8 @@
             top: 10px;
             color: #fff;
             font-size: 1.3rem;
+            border: 1px solid red;
+            cursor: pointer;
         }
         /* 클릭시 .on 활성화 */
         .sbx.on{
@@ -48,14 +50,25 @@
 
 
     </style>
-    <script defer>
+    <script>
 
-        const sbx = document.querySelector(".sbx");
-        const searchbx = document.getElementById("searchbx")
+        window.addEventListener("DOMContentLoaded", ()=>{
 
-        
-        sbx.classList.toggle("on");
+            const sbx = document.querySelector(".sbx");
+            const sicon = document.querySelector(".sicon");
 
+            sicon.onclick = ()=>{
+                sbx.classList.toggle("on");
+            };
+
+
+
+
+
+
+
+
+        }); //////////////// 로딩 구역 ////////////////////////
     </script>
 </head>
 <body>
