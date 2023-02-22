@@ -30,48 +30,6 @@ html,body{
 }
 
 /* 2. 들어가기 버튼 */
-/* #load{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 350px;
-    height: 5px;
-    border: 1px solid #fff;
-    animation: load1 4.1s linear forwards;
-}
-#load::after{
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 0;
-  height: 100%;
-  background-color: #fff;
-  animation: load2 4.1s linear forwards;
-}
-
-@keyframes load1 {
-  50%{
-    border: 1px solid #fff;
-  }
-  100%{
-    border: 1px solid #000;
-  }
-}
-@keyframes load2 {
-  50%{
-    background-color: #fff;
-  }
-  100%{
-    width: 100%;
-    background-color: #000;
-  }
-} */
-
-
-
 .loader{
   position: absolute;
   left: calc(50% - 70px);
@@ -131,8 +89,14 @@ html,body{
   width: 120px; */
   color: #fff;
   font-size: 2rem;
+  letter-spacing: 3px;
   font-family: 'Kanit', sans-serif;
   animation: loader3 4.2s linear forwards;
+  transition: .3s;
+}
+.ltxt:hover{
+  font-size: 3rem;
+  letter-spacing: 1px;
 }
 @keyframes loader3{
   50%{
