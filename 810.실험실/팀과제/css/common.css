@@ -73,14 +73,15 @@ nav.gnb ul{
 }
 .info #mslide{
   display: flex;
+  transition: all .4s;
+  position: relative;
+  left: 0;
 }
 .info #mslide li{
   flex-shrink: 0;
   flex-basis: 30%;
+  margin: 0 20px;
   position: relative;
-}
-.info #mslide li+li{
-  margin-left: 5%;
 }
 .info #mslide li span{
   color: #fff;
