@@ -8,29 +8,55 @@
     <!-- 폰트어썸 CDN CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <style>
+        input,label{
+            margin: 0;
+            padding: 0;
+        }
 
         .sbx{
             position: relative;
-            width: 150px;
-            height: 30px;
-            border: 1px solid #000;
+            width: 40px;
+            height: 40px;
+            transition: .3s;
+            border-radius: 50px;
         }
         #searchbx{
             border: none;
             width: 100%;
             height: 100%;
-            background-color: #fc0;
+            border-radius: 50px;
+            background-color: #2e2e2e;
+            text-indent: 20px;
+        }
+        #searchbx:focus{
+            outline: none;
         }
         .sicon{
             position: absolute;
-            right: 0;
-            bottom: 0;
-            color: black;
-            border: 1px solid #000;
+            right: 10px;
+            top: 10px;
+            color: #fff;
+            font-size: 1.3rem;
+        }
+        /* 클릭시 .on 활성화 */
+        .sbx.on{
+            width: 180px;
+        }
+        .sbx.on #searchbx{
+            background-color: rgba(46, 46, 46, 0.3);
         }
 
 
     </style>
+    <script defer>
+
+        const sbx = document.querySelector(".sbx");
+        const searchbx = document.getElementById("searchbx")
+
+        
+        sbx.classList.toggle("on");
+
+    </script>
 </head>
 <body>
 
