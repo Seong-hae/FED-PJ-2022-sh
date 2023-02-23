@@ -4,7 +4,22 @@
 
 /* 1400px 사이즈 이하 미디어쿼리 시작 */
 @media screen and (max-width: 1400px) {
-
+    .info .more h3{
+        margin-bottom: 8vh;
+    }
+    .info .mbx{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .info #mslide li span {
+        bottom: -20%;
+    }
+    .mb1 {
+        left: 35px;
+    }
+    .mb2 {
+        right: 35px;
+    }
 }
 /* 1400px 사이즈 이하 미디어쿼리 끝 */
 
