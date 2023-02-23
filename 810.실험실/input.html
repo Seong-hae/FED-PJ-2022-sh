@@ -1,265 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>input연습</title>
-        <!-- 폰트어썸 CDN CSS -->
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        />
-        <style>
-            input,
-            label {
-                margin: 0;
-                padding: 0;
-            }
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+  </head>
 
-            .sbx {
-                position: relative;
-                width: 40px;
-                height: 40px;
-                transition: 0.3s;
-                border-radius: 50px;
-            }
-            #searchbx {
-                border: none;
-                width: 100%;
-                height: 100%;
-                border-radius: 50px;
-                background-color: #2e2e2e;
-                text-indent: 20px;
-            }
-            #searchbx:focus {
-                outline: none;
-            }
-            .sicon {
-                position: absolute;
-                right: 10px;
-                top: 10px;
-                color: #fff;
-                font-size: 1.3rem;
-                border: 1px solid red;
-                cursor: pointer;
-            }
-            /* 클릭시 .on 활성화 */
-            .sbx.on {
-                width: 180px;
-            }
-            .sbx.on #searchbx {
-                background-color: rgba(46, 46, 46, 0.3);
-            }
+  <body>
+    <h2>Hello!</h2>
+    <script src="src/index.js"></script>
+  </body>
 
-            /* 1. 비디오 요소 */
-            #myvid {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                /* object-position: -100px -200px; */
-
-                /* 필터의 명도를 조정하여 어두워보이게 함 */
-                filter: transparent(50%);
-                /* 
-        용어체크:
-        1) 오버레이효과(overlay) - 어둡게처리
-        2) 트렌스페런트효과(transparent) - 밝게처리
-    */
-            }
-
-            /* 2. 들어가기 버튼 */
-            /* #load{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 350px;
-    height: 5px;
-    border: 1px solid #fff;
-    animation: load1 4.1s linear forwards;
-}
-#load::after{
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 0;
-  height: 100%;
-  background-color: #fff;
-  animation: load2 4.1s linear forwards;
-}
-
-@keyframes load1 {
-  50%{
-    border: 1px solid #fff;
+  <script>
+    const title = document.querySelector("h2");
+const superEventHandler = {
+  mouseEnter: () => {
+    title.innerText = "The mouse is here!";
+    title.style.color = "#1abc9c";
+  },
+  mouseLeave: () => {
+    title.innerText = "The mouse is gone!";
+    title.style.color = "#3498db";
+  },
+  reSize: () => {
+    title.innerText = "You just resized!";
+    title.style.color = "#9b59b6";
+  },
+  contextMenu: () => {
+    title.innerText = "That was a right click!";
+    title.style.color = "#f39c12";
   }
-  100%{
-    border: 1px solid #000;
-  }
-}
-@keyframes load2 {
-  50%{
-    background-color: #fff;
-  }
-  100%{
-    width: 100%;
-    background-color: #000;
-  }
-} */
+};
 
-            .load {
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-                position: fixed;
-                display: flex;
-                z-index: 999;
-            }
-            .load .video {
-                display: flex;
-                width: fit-content;
-                height: fit-content;
-                margin: auto;
-            }
-
-            .loader {
-                position: absolute;
-                left: calc(50% - 70px);
-                top: calc(50% - 70px);
-                /* transform: translate(-10%, -50%); */
-                height: 140px;
-                width: 140px;
-                border-radius: 50%;
-                border: 3px solid #fff;
-                /* transform-origin: 50% 50%; */
-                animation: loader1 5s linear forwards;
-            }
-
-            .loader::after {
-                content: "";
-                position: absolute;
-                top: 1px;
-                left: 20px;
-                width: 18px;
-                height: 18px;
-                border-radius: 10px;
-                background-color: #fff;
-                animation: loader2 5s linear forwards;
-            }
-            @keyframes loader1 {
-                0% {
-                    transform: rotate(0deg);
-                }
-                50% {
-                    border: 3px solid #fff;
-                }
-                80% {
-                    border: 3px solid #000;
-                }
-                100% {
-                    border: 3px solid #000;
-                    transform: rotate(500deg);
-                }
-            }
-            @keyframes loader2 {
-                50% {
-                    background-color: #fff;
-                }
-                80% {
-                    background-color: #000;
-                }
-                100% {
-                    background-color: #000;
-                }
-            }
-            .ltxt {
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                /* height: 120px;
-  width: 120px; */
-                color: #fff;
-                font-size: 2rem;
-                font-family: "Kanit", sans-serif;
-                animation: loader3 4.2s linear forwards;
-            }
-            @keyframes loader3 {
-                50% {
-                    color: #fff;
-                }
-                100% {
-                    color: #000;
-                }
-            }
-        </style>
-        <script defer>
-            // window.addEventListener("DOMContentLoaded", () => {
-            //     const sbx = document.querySelector(".sbx");
-            //     const sicon = document.querySelector(".sicon");
-
-            //     sicon.onclick = () => {
-            //         sbx.classList.toggle("on");
-            //     };
-
-            //     // const loader = document.querySelector(".video");
-            //     // window.load(function () {
-            //     //     loader.fadeOut();
-            //     // });
-
-            //     // const _showPage = function() {
-            //     // const loader = document.querySelector(".video");
-            //     // const container = document.querySelector(".sbx");
-            //     // loader.css("display","none");
-            //     // container.css("display","block");
-            //     // };
-
-            //     const load = document.querySelector(".load");
-            //     // $(window).on("load", function () {
-            //     //     setTimeout(function () {
-            //     //         load.fadeOut();
-            //     //     }, 400);
-            //     // });
-
-
-                
-            // }); //////////////// 로딩 구역 ////////////////////////
-
-            const load = document.querySelector(".load");
-            $(window).on("load", function () {
-                    setTimeout(function () {
-                        load.fadeOut();
-                    }, 400);
-                });
-        </script>
-    </head>
-
-    <body>
-        <!-- 1. 배경 비디오 넣기 -->
-        <div class="load">
-            <video
-                class="video"
-                id="myvid"
-                src="./팀과제/img/video.mp4"
-                autoplay
-                muted
-                playsinline
-            ></video>
-            <!-- 출처: KBS한국방송 천체영상 -->
-            <!-- loop설정이면 무한반복: 끝날때 이동하려면 이것을 설정하지 말아라! -->
-            <div class="loader"></div>
-            <p class="ltxt">LOADING...</p>
-        </div>
-
-        <div class="sbx">
-            <input type="text" id="searchbx" />
-            <label
-                for="searchbx"
-                class="fa-solid fa-magnifying-glass sicon"
-            ></label>
-        </div>
-    </body>
+title.addEventListener("mouseenter", superEventHandler.mouseEnter);
+title.addEventListener("mouseleave", superEventHandler.mouseLeave);
+window.addEventListener("resize", superEventHandler.reSize);
+title.addEventListener("contextmenu", superEventHandler.contextMenu);
+  </script>
 </html>
