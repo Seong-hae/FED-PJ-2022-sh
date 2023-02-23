@@ -80,6 +80,7 @@ nav.gnb ul{
   color: #fff;
   font-size: 1.8rem;
   cursor: pointer;
+  background-color: #575a5ecb;
 }
 /* 클릭시 .on 활성화 */
 .sbx.on{

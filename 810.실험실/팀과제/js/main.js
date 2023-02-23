@@ -9,17 +9,25 @@ function loadFn(){
 
     console.log("로딩완료!");
 
+
+    // header 영역 스크롤시 배경색, 찾기버튼 색변경 변수
+    const searchbx = document.querySelector(".searchbx");
+    const sbx = document.querySelector(".sbx");
+    const sicon = document.querySelector(".sicon");
+
+
     /****************************************************
      [ GNB메뉴 스크롤 시 색변경 ]
      ******************************************************/
-    const searchbx = document.querySelector(".searchbx");
     window.addEventListener('scroll', function() {
         if (window.scrollY > 80) {
             document.querySelector('.top').classList.add("on");
             searchbx.style=('background-color: #506a7e;');
+            sicon.style=('background-color: #506a7e');
         } else {
             document.querySelector('.top').classList.remove("on");
             searchbx.style=('background-color: #575a5ecb;');
+            sicon.style=('background-color: #575a5ecb;');
         }
     });
 
@@ -28,9 +36,6 @@ function loadFn(){
     /****************************************************
      [ 검색창 클릭시 열고 닫기 ]
     ******************************************************/
-    const sbx = document.querySelector(".sbx");
-    const sicon = document.querySelector(".sicon");
-
     sicon.onclick = ()=>{
         sbx.classList.toggle("on");
     };
