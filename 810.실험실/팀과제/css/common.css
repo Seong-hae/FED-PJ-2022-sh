@@ -64,6 +64,7 @@ nav.gnb ul{
   background-color: #575a5ecb;
   text-indent: 20px;
   transition: .3s;
+  color: #fff;
 }
 .gnb .searchbx:focus{
   outline: none;

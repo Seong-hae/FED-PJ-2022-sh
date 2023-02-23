@@ -200,7 +200,7 @@ function loadFn(){
     function autoSlide(){
         console.log("인터발시작!");
         // 인터발함수로 슬라이드함수 호출하기
-        autoI = setInterval(()=>goSlide(1),3000);
+        autoI = setInterval(()=>goSlide(1),5000);
     } ////////////// autoSlide함수 ///////////////
 
     // 자동넘김 최초호출!
