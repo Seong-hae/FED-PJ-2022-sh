@@ -2,11 +2,14 @@
 
 /* SOLAR SYSTEM PJ 공통 미디어쿼리 - mainmedia.css */
 
-/* 1200px 사이즈 이하 미디어쿼리 시작 */
-@media screen and (max-width: 1200px) {
+/* 1400px 사이즈 이하 미디어쿼리 시작 */
+@media screen and (max-width: 1400px) {
 
 }
-/* 1200px 사이즈 이하 미디어쿼리 끝 */
+/* 1400px 사이즈 이하 미디어쿼리 끝 */
+
+
+
 
 /* 1200px 사이즈 이하 미디어쿼리 시작 */
 @media screen and (max-width: 1200px) {
