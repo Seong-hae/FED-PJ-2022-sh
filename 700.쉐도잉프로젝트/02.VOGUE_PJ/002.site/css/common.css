@@ -174,10 +174,10 @@ https://www.w3schools.com/cssref/tryit.php?filename=trycss_cursor */
     color: red;
 }
 
-/***********************************************
+/********************************************* 
     #top.on 인 경우 슬림디자인 상단영역적용!
-***********************************************/
-/* 0. 상단영역 최상위박스(#top) fixed 고정 */
+*********************************************/
+/* 0. 상단영역 최상위박스(#top) fixed고정 */
 #top.on{
     position: fixed;
     top: 0;
@@ -199,7 +199,7 @@ https://www.w3schools.com/cssref/tryit.php?filename=trycss_cursor */
     width: 100px;
 }
 /* 4. 로고 박스 */
-#top.on .logo{
+#top.on .logo {
     position: absolute;
     left: 0;
     /* 부모는? #top */
@@ -212,18 +212,21 @@ https://www.w3schools.com/cssref/tryit.php?filename=trycss_cursor */
     color: #333;
     font-size: 14px;
 }
+/* 오버시 우선적용문제로 빨간색글자 재적용하기 */
+#top.on .gnb a:hover{
+    color: red;
+}
 /* 6. GNB박스 */
 #top.on .gnb{
     min-height: 45px;
     padding-top: 5px;
     /* -> 모바일 미디어쿼리로 처리하자!
-    padding: 5px 30px 0 120px; */ 
+    padding: 5px 30px 0 120px; */
 }
 /* 7. GNB박스 ul */
 #top.on .gnb ul{
     gap: 0 35px;
 }
-#top.on{}
 
 /**************** 2. 메인영역 ****************/
 .cont{
