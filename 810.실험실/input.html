@@ -3,37 +3,98 @@
   <head>
     <title>Parcel Sandbox</title>
     <meta charset="UTF-8" />
+
+    <style>
+
+    h1 {
+      color: white;
+    }
+
+    .screen01 {
+      background-color: yellow;
+    }
+
+    .screen02 {
+      background-color: purple;
+    }
+
+    .screen03 {
+      background-color: blue;
+    }
+
+    
+.bigScreen {
+  background-color: #f1c40f;
+}
+
+.mediumScreen {
+  background-color: #9b59b6;
+}
+
+.smallScreen {
+  background-color: #3498db;
+}
+
+
+    </style>
   </head>
 
   <body>
-    <h2>Hello!</h2>
-    <script src="src/index.js"></script>
+    <h1>Hello!</h1>
   </body>
 
   <script>
-    const title = document.querySelector("h2");
-const superEventHandler = {
-  mouseEnter: () => {
-    title.innerText = "The mouse is here!";
-    title.style.color = "#1abc9c";
-  },
-  mouseLeave: () => {
-    title.innerText = "The mouse is gone!";
-    title.style.color = "#3498db";
-  },
-  reSize: () => {
-    title.innerText = "You just resized!";
-    title.style.color = "#9b59b6";
-  },
-  contextMenu: () => {
-    title.innerText = "That was a right click!";
-    title.style.color = "#f39c12";
-  }
-};
 
-title.addEventListener("mouseenter", superEventHandler.mouseEnter);
-title.addEventListener("mouseleave", superEventHandler.mouseLeave);
-window.addEventListener("resize", superEventHandler.reSize);
-title.addEventListener("contextmenu", superEventHandler.contextMenu);
+    const body = document.body;
+
+    const screen01 = "screen01";
+    const screen02 = "screen02";
+    const screen03 = "screen03";
+
+    function reSize(){
+      const width = window.innerWidth;
+      if( width > 1200 ){
+        body.classList.add(screen01);
+        body.classList.remove(screen02);
+      } else if( width <= 1200 && width >= 800 ){
+        body.classList.add(screen02);
+        body.classList.remove(screen01,screen03);
+      } else{
+        body.classList.add(screen03);
+        body.classList.remove(screen02);
+      }
+    }
+
+    window.addEventListener("resize", reSize);
+
+
+
+
+// const body = document.body;
+
+// const BIG_SCREEN = "bigScreen";
+// const MEDIUM_SCREEN = "mediumScreen";
+// const SMALL_SCREEN = "smallScreen";
+
+// function handleResize() {
+//   const width = window.innerWidth;
+//   if (width > 1000) {
+//     body.classList.add(BIG_SCREEN);
+//     body.classList.remove(MEDIUM_SCREEN);
+//   } else if (width <= 1140 && width >= 700) {
+//     body.classList.add(MEDIUM_SCREEN);
+//     body.classList.remove(BIG_SCREEN, SMALL_SCREEN);
+//   } else {
+//     body.classList.remove(MEDIUM_SCREEN);
+//     body.classList.add(SMALL_SCREEN);
+//   }
+// }
+
+// window.addEventListener("resize", handleResize);
+
+
   </script>
 </html>
+
+
+
