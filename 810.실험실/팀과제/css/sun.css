@@ -9,16 +9,3 @@
 
 
 /* 태양설명영역 */
-#mcont{
-    height: 3000px;
-    /* background-image: url(../img/sun03.jpg); */
-}
-#mcont .mcont{
-}
-/* 2-1. 태양이미지 메인화면 */
-.mcont .msec01{
-    width: 100vw;
-}
-.msec01 img{
-    width: 100%;
-}
