@@ -10,7 +10,7 @@
 
 /* 공사중 표시 */
 body *{
-    outline: 1px dashed red;
+    /* outline: 1px dashed red; */
 }
 
 /* 중앙 속박스 */
@@ -27,43 +27,150 @@ body *{
 .top{
     min-height: 350px;
 }
+
+
+
+
 /* 1-1.탑메뉴 영역 */
 .tmenu{
     height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
 }
+/* 탑메뉴 왼쪽영역 */
+.tmenu .leftbx{
+    display: flex;
+}
+.tmenu .leftbx li+li{
+    margin-left: 20px;
+    position: relative;
+}
+.tmenu .leftbx a{
+    color: #fff;
+    font-size: 13px;
+}
+.tmenu .leftbx li:last-child::before{
+    content: "|";
+    position: absolute;
+    color: rgb(218, 218, 218);
+    left: -12px;
+}
+/* 탑메뉴 로고 */
+.tmenu .logo{
+    width: 125px;
+    height: 30px;
+    background: url(../img_nav06/logo.png) no-repeat;
+}
+/* 탑메뉴 오른쪽영역 */
+.tmenu .rightbx{
+    display: flex;
+}
+.tmenu .sbx{
+    position: relative;
+}
+.tmenu .searchbx{
+    width: 200px;
+    height: 30px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #e31e8f 40%, #ffcd03 95%);
+    outline: none;
+    text-indent: 15px;
+    font-size: 16px;
+}
+.tmenu .sicon{
+    position: absolute;
+    right: 13px;
+    top: 5px;
+    color: #fff;
+}
+.tmenu .rightbx i{
+    display: inline-block;
+    color: #fff;
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 20px;
+    height: 30px;
+}
+
+
+
+
+
+
 /* 1-2.GNB 영역 */
 .gnb{
+    /* 부모자격 - .smenu */
+    position: relative;
+
     max-width: 1300px;
     margin: 0 auto;
+
+    /* 줄바꿈방지 */
+    white-space: nowrap;
+    /* GNB 배경박스(.bgbx)보다 위 */
+    z-index: 1;
 }
 .gnb>ul{
     /* 플렉스 박스 */
     display: flex;
-    gap: 0 40px;
+    /* gap: 0 40px; */
 }
+/* 상위메뉴 a요소 */
 .gnb>ul>li>a{
+    /* a요소 확장!(li만큼) */
+    display: block;
+    padding: 0 20px;
+
+    line-height: 60px;
     color: #ccc;
+}
+.gnb>ul>li:hover>a{
+    background: linear-gradient(90deg, #e31e8f 40%, #ffcd03 95%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 /* 하위메뉴 */
 .smenu{
-    display: flex;
     position: absolute;
+    left: 0;
     width: 1300px;
     background-color: #fff;
-    display: none;
+    
+
+    /* 숨기기장치 : overflow, height, opacity(효과)*/
+    overflow: hidden;
+    /* 넘치는 자식요소 숨기기 */
+    height: 0;
+    /* 높이값 : 0 - 각각의 서브 높이만큼 오버시 변경 */
+    opacity: 0;
+    /* 투명도 : 0-> 오버시 1로 보이게함 */
+
+    /* 트랜지션 : 속시이지 */
+    transition: .4s ease-in-out;  
+
+
+}
+/* 하위메뉴 구조랩핑박스 .smbx */
+.smbx{
+    /* h2, div의 플렉스박스*/
+    display: flex;
 }
 
 /* 📢임시로 첫번째 메뉴만 보이게 함!! */
-.gnb>ul>li:first-child .smenu{
+/* .gnb>ul>li:nth-child(9) .smenu{
     display: flex;
-}
+} */
 
 /* 서브메뉴 타이틀 */
 .smenu h2{
     width: 166px;
     padding: 20px;
     font-weight: normal;
+    border-right: 1px solid #e3e3e3;
 }
 /* 타이틀 */
 .smenu h2 div{
@@ -72,17 +179,89 @@ body *{
 }
 /* 전체보기 */
 .smenu h2 a{
-    font-size: 14px;
+    font-size: 13px;
 }
 
-/* 서브메뉴(최하위 메뉴) */
+/* 서브메뉴(최하위) */
 .swrap{
+    /* 플렉스박스 */
     display: flex;
-    width: 100%;
-    padding: 20px;
-}
+    /* 플렉스 줄바꿈설정 */
+    flex-wrap: wrap;
 
-/* 서브 각 박스 (dl) */
+    width: 100%;
+    padding: 5px 60px;
+}
+/*  서브 각 박스 (dl) */
 .swrap dl{
     width: 200px;
 }
+/* 하위메뉴(dt) */
+.swrap dt{
+    position: relative;
+    width: 120px;
+    font-size: 16px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    /* 하단보더 */
+    border-bottom: 1px solid #e3e3e3;
+}
+/* dt,dd 하단선 */
+.swrap dt::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    transform: translateY(6px);
+    background-color: #555;
+    transition: width .2s;
+}
+.swrap dd a{
+    /* a요소 글자있는 부분까지만 선이 생기게함! */
+    display: inline-block;
+    color: #777;
+}
+/* dd 하단선 가상요소 */
+.swrap dd a::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    transform: translateY(-10px);
+    background-color: #555;
+    transition: width .2s;
+}
+/* dt오버시 하단선 */
+.swrap dt:hover::after,
+.swrap dd a:hover::after{
+    width: 100%;
+}
+/* 서브메뉴(dd) */
+.swrap dd{
+    font-size: 13px;
+    line-height: 2.5;
+}
+/* dd a오버시 글자 */
+.swrap dd a:hover{
+    color: #000;
+}
+
+/* 서브메뉴 배경박스 */
+.bgbx{
+    position: absolute;
+    top: 140px;
+    width: 100%;
+
+    /* 변경요소: height, opacity */
+    height: 0;
+    opacity: 0;
+
+    background-color: #fff;
+    /* 박스그림자 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.211);
+
+    /* 트랜지션 : 속시이지 - .smenu랑 동일! */
+    transition: .4s ease-in-out;
+}
+
+
