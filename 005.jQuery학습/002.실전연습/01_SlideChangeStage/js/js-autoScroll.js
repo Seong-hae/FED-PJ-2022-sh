@@ -200,7 +200,7 @@ function loadFn() {
    *****************************************/
     function updatePg(obj) { // obj - 변경할 메뉴전체 객체
         // 1. 함수호출확인
-        console.log("업데이트!");
+        // console.log("업데이트!");
 
         // 2. 페이지 이동하기
         // scrollTo(가로,세로)
@@ -230,13 +230,13 @@ function loadFn() {
     *****************************************************/
    // 1. 대상선정 : .minfo
    const minfo = document.querySelectorAll(".minfo");
-   console.log(minfo);
+//    console.log(minfo);
    // 2. 이벤트설정
    minfo.forEach((ele,idx)=>{initCSS(ele,idx)});
    // 3. 함수만들기
    function initCSS(ele,seq){ // ele - 요소, seq - 순번
         // 1. 함수호출확인
-        console.log("초기화!",seq);
+        // console.log("초기화!",seq);
 
         // 2. 해당요소 스타일속성 선택
         let sty = ele.style;
