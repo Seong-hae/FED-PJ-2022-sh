@@ -13,61 +13,8 @@
 .sun{
   /* height: 3000px; */
 }
+/* section01 */
 .sun01{
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: url(../img/sun03.jpg) no-repeat;
-}
-.sun01 h2{
-  color: #fff;
-  font-size: 8vw;
-  font-family: 'Kanit', sans-serif;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.sun01 .ibx{
-  width: 30vw;
-  height: auto;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-  border-radius: 50%;
-  box-shadow: 0 0 100px 20px rgba(251, 255, 0);
-}
-.sun01 iframe{
-  width: 100%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  border: none;
-  /* box-shadow: 0 0 100px 20px rgba(251, 255, 0); */
-}
-
-/* section02 */
-.sun02{
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: url(../img/sun01.jpg) no-repeat;
-  background-size: contain;
-  background-color: #000;
-}
-.sun02 h2{
-  color: #fff;
-  font-size: 3vw;
-  font-weight: 400;
-  font-family: 'Kanit', sans-serif;
-  position: absolute;
-  bottom: 35vh;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* section03 */
-.sun03{
   position: relative;
   width: 100%;
   height: 100vh;
@@ -76,7 +23,7 @@
   background-position: right;
   background-color: #000;
 }
-.sun03 h2{
+.sun01 h2{
   color: #fff;
   font-size: 5vw;
   font-weight: 600;
@@ -84,26 +31,4 @@
   position: absolute;
   bottom: 35vh;
   left: 15%;
-}
-
-/* section04 */
-.sun04{
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: url(../img/sun06.jpg) no-repeat;
-  background-size: cover;
-  background-position: right;
-  background-color: #000;
-}
-.sun04 h2{
-  color: #fff;
-  font-size: 8vw;
-  font-weight: 600;
-  font-family: 'Kanit', sans-serif;
-  position: absolute;
-  bottom: 35vh;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
 }
