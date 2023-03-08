@@ -3,13 +3,31 @@
 <head>
 <meta charset="utf-8">
 <title> 클래스 선택자  </title>
-<script src="jquery-1.7.2.min.js"></script>
+<script src="../jquery-3.6.3.min.js"></script>
 	<script>
-		$(document).ready(function(){
+		$(()=>{
 			// 미션: 클래스가 group인 요소를 선택하여
-			// 클릭할 경우 배경색을 lime
+			// li를 클릭할 경우 배경색을 lime
 			// 글자크기는 52px로 변경하시오.
 			// 단, transition 을 "all .6s"로 설정하여 애니메이션 되게 하시오.
+			// 그리고 개별적으로 적용되게 할 것!(this 사용)
+			$(".group li").click(
+				// function(){
+					(e)=>{
+				// 클릭된 li자신 -> this!
+				// this 쭉 올라가다가 익명함수를 만났을때 this가 되는데 여기는 올라가도 익명함수가 없으니깐
+				// window가 this가 되었다!
+				// 화살표함수 this는 event.currentTarget사용!
+				console.log(this);
+				console.log(e.currentTarget);
+
+				// $(this).css({
+				$(event.currentTarget).css({
+					backgroundColor : "lime",
+					fontSize: "52px",
+					transition : "all .6s"
+				}); /////// css /////
+			});
 			
 			
 			
