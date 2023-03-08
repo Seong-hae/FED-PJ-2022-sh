@@ -8,27 +8,120 @@
 @import url(common.css);
 
 
+
+
 /* 태양설명영역 */
-/* section01 */
 .sun{
-  /* height: 3000px; */
+  font-family: 'Kanit', sans-serif;
+  color: #333;
+  height: 3000px;
 }
-/* section01 */
+/************* section01 *************/
 .sun01{
   position: relative;
   width: 100%;
   height: 100vh;
   background: url(../img/sun07.jpg) no-repeat;
   background-size: cover;
-  background-position: right;
+  background-position: center;
   background-color: #000;
 }
-.sun01 h2{
+.sun01 .sun01_textbox{
   color: #fff;
-  font-size: 5vw;
-  font-weight: 600;
-  font-family: 'Kanit', sans-serif;
   position: absolute;
-  bottom: 35vh;
-  left: 15%;
+  bottom: 25vh;
+  left: 10%;
 }
+.sun01 .sun01_textbox h2{
+  font-size: 12rem;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+.sun01 .sun01_textbox p{
+  width: 28vw;
+  font-size: 1.8rem;
+  line-height: 1.3;
+  font-weight: 200;
+  text-indent: 5px;
+}
+/* 페이지 들어왔을때 효과 */
+.sun01::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+  background-color: #000;
+  animation: introAni 2s ease-in-out forwards;
+}
+
+@keyframes introAni {
+  0%{
+    opacity: 0.7;
+  }
+  90%{
+    opacity: 0;
+    height: 100vh;
+  }
+  100%{
+    opacity: 0;
+    height: 0;
+  }
+}
+
+
+/************* section02 *************/
+.sun02{
+  margin: 15vh 0;
+}
+.sun02 .sun02_textbox{
+  display: flex;
+  align-items: start;
+}
+.sun02 .sun02_left{
+  width: 65%;
+  margin-right: 5%;
+}
+.sun02 .sun02_left h3{
+  font-size: 5.5rem;
+  font-weight: 400;
+}
+.sun02 .sun02_left p{
+  margin-top: 4vh;
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1.5;
+  text-indent: 10px;
+}
+.sun02 .sun02_right{
+  width: 30%;
+  border: 1px solid #c0c0c0;
+  box-sizing: border-box;
+  padding: 4vh 2vw;
+}
+.sun02 .sun02_right h3{
+  font-size: 2.8rem;
+  font-weight: 600;
+}
+.sun02 .sun02_right li{
+  margin-top: 2.5vh;
+  font-size: 1.7rem;
+  font-weight: 200;
+  line-height: 1.3;
+}
+.sun02 .sun02_right li strong{
+  font-size: 2rem;
+  font-weight: 400;
+}
+.sun02 .sun02_right li a{
+  color: #43aaed;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+/************* section03 *************/
+
+
+/************* section04 *************/
