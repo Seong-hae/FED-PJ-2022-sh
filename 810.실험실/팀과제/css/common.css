@@ -62,7 +62,7 @@ nav.gnb ul{
   width: 100%;
   height: 100%;
   border-radius: 50px;
-  background-color: #575a5ecb;
+  background-color: rgba(86, 89, 93);
   text-indent: 20px;
   transition: .3s;
   color: #fff;
@@ -82,11 +82,12 @@ nav.gnb ul{
   color: #fff;
   font-size: 1.8rem;
   cursor: pointer;
-  background-color: #575a5ecb;
+  background-color: rgba(86, 89, 93);
 }
 /* 클릭시 .on 활성화 */
 .sbx.on{
   width: 200px;
+  background-color: rgba(86, 89, 93);
 }
 
 
