@@ -19,7 +19,7 @@ function loadFn(){
     // 1.대상 선정
     // (1)이벤트 대상 : .sun04 li
     const exploreTable = document.querySelectorAll(".sun04 .explorelist");
-    // (2)변경 대상 : .mbg
+    // (2)변경 대상 : .movebox
     const moveBox = document.querySelector(".sun04 .movebox");
     console.log(exploreTable, moveBox);
 
@@ -30,12 +30,11 @@ function loadFn(){
             // (1)top 위치값
             let etop = ele.offsetTop;
             // : ele(대상요소)의 정보값을 알아오면 됨
-            // (2)width값
+            // (2)Height값
             let eHeight = ele.offsetHeight;
-            // : 대상 요소의 위치값은 nav.gnb요소가 relative를 가진 요소를 기준한 offset정보임
 
             // 확인
-            // console.log("top: ", etop, "\n width: ", eWidth);
+            // console.log("top: ", etop, "\n Height: ", eHeight);
 
 
             // 2.움직이는 배경박스 변경하기

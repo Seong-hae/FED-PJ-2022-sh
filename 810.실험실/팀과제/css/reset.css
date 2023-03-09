@@ -15,7 +15,7 @@ ul,ol{
 
 /* a요소 - 글자색, 밑줄없앰 */
 a{
-    color: #fff;
+    color: #333;
     text-decoration: none;
 }
 

@@ -127,24 +127,22 @@
 
 
 /************* section04 *************/
-.sun04{
-}
 .sun04 h3{
-  font-size: 8rem;
+  font-size: 7rem;
   font-weight: 500;
   margin-bottom: 5vh;
 }
 .sun04 ul{
   position: relative;
 }
-.sun04 ul .explorelist{
+.sun04 ul .explorelist a{
   box-sizing: border-box;
   display: flex;
   width: 100%;
   padding: 2vh 0;
   border-top: 1px solid #b6b6b6;
 }
-.sun04 ul .explorelist:last-child{
+.sun04 ul .explorelist:last-child a{
   border-bottom: 1px solid #b6b6b6;
 }
 .sun04 .explorelist .explore_img{
@@ -175,7 +173,7 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical; */
 }
-.mbx{
+.explorebox{
   position: relative;
 }
 .sun04 .movebox{
@@ -183,8 +181,7 @@
   left: 0;
   top: 0;
   width: 100%;
-  height: 25%;
   background-color: rgba(255, 220, 206, 0.397);
   transition: .4s ease-in-out;
-  /* opacity: 0; */
+  opacity: 0;
 }
