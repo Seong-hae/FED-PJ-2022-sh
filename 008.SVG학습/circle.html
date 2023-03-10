@@ -202,7 +202,19 @@
         /* 미디어쿼리 */
         @media screen and (max-width:1000px) {
             
-
+            /* 로고박스 */
+            .mvlogo{
+                width: 250px;
+            }
+            /* 컨텐츠박스 */
+            .cbx{
+                width: 200px;
+                height: 200px;
+            }
+            /* 클리핑 svg path 크기변경 */
+            .clipSVG{
+                transform: scale();
+            }
         }
 
     </style>
@@ -217,7 +229,7 @@
         <!-- 1.아이언맨 : 원 -->
         <section>
             <div class="cbx svg1">
-                <svg>
+                <svg viewBox="0 0 300 300">
                     <circle class="c1" cx="150" cy="150" r="140"></circle>
                     <!-- <circle class="c1" cx="150" cy="150" r="140" transform="rotate(-120,150,150)"></circle> -->
                 </svg>
@@ -226,7 +238,7 @@
         <!-- 2. 블랙위도우 : 사각형 -->
         <section>
             <div class="cbx svg2">
-                <svg>
+                <svg viewBox="0 0 300 300">
                     <rect class="rt1" width="280" height="280" x="10" y="10"></rect>
                 </svg>
             </div>
@@ -234,7 +246,7 @@
         <!-- 3.닥스박스 : 다각형(6각형) -->
         <section>
             <div class="cbx svg3">
-                <svg>
+                <svg viewBox="0 0 300 300">
                     <!-- 
                     [defs요소] : 요소에 효과를 정의함
 
@@ -260,6 +272,8 @@
                 </svg>
             </div>
         </section>
+
+        <!-- 완다 -->
         <section>
             <div class="cbx svg4">
                 <svg>
