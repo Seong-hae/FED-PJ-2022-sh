@@ -15,9 +15,6 @@
   font-family: 'Kanit', sans-serif;
   color: #333;
 }
-.sun>section+section{
-  padding: 15vh 0;
-}
 /************* section01 *************/
 .sun01{
   position: relative;
@@ -75,6 +72,9 @@
 
 
 /************* section02 *************/
+.sun02{
+  padding: 15vh 0;
+}
 .sun02 .sun02_textbox{
   display: flex;
   align-items: start;
@@ -122,11 +122,37 @@
 
 /************* section03 *************/
 .sun03{
-  border: 1px solid rgb(243, 181, 89);
+  height: 40vh;
+}
+.sun03 .sun03_imgbox{
+  position: relative;
+  height: 100%;
+  background: url(../sunimg/sun04.jpg) no-repeat center/cover;
+  background-attachment: fixed;
+}
+.sun03 .frontbox{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 20vw;
+  background-color: #fff;
+  text-align: center;
+}
+.sun03 .frontbox h4{
+  font-size: 2.5rem;
+  margin-bottom: 2vh;
+}
+.sun03 .frontbox p{
+  font-size: 1.8rem;
+  font-weight: 300;
 }
 
 
 /************* section04 *************/
+.sun04{
+  padding: 15vh 0;
+}
 .sun04 h3{
   font-size: 7rem;
   font-weight: 500;
@@ -141,6 +167,7 @@
   width: 100%;
   padding: 2vh 0;
   border-top: 1px solid #b6b6b6;
+  color: #333;
 }
 .sun04 ul .explorelist:last-child a{
   border-bottom: 1px solid #b6b6b6;

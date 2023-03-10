@@ -23,7 +23,12 @@
             background-color: #fff;
             border-radius: 40px;
         }
-        /* 가상요소로 움직이는 배경박스 만들기 */
+        /* 움직이는 배경박스 만들기 
+        -> 순서대로 쌓이기 때문에 맨밑에 .gnb에 배경색깔을 깔아놓고
+        li에는 배경색을 따로 주지않아서 투명이기때문에
+        .mbg에 따로 z값을 주지않아도 시각적으로는 글자뒤에서 움직이는 것처럼 보인다
+        이때 li는 마우스로 직접 만져지는 거지만 뒤에 .mbg는 밑에서 움직이는 거라서 만져지진 않는다
+        */
         .mbg{
             position: absolute;
             /* 변경내용:left,width
@@ -38,7 +43,7 @@
         }
         .gnb ul{
             position: relative;
-            /* 가상요소보다 위! */
+            /* 대상요소의 부모에 relative값이 존재해야함 */
             display: flex;
             margin: 0;
             padding: 0;
