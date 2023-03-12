@@ -10,6 +10,56 @@ window.addEventListener("DOMContentLoaded", loadFn);
 
 function loadFn(){
 
+    /***************************************************
+        SUN PAGE 전체 스크롤 위치이동시 액션
+    ***************************************************/
+   
+    
+
+
+
+
+
+
+    /***************************************************
+        section03 - 동영상보이기/숨기기
+    ***************************************************/
+    // 햄버거버튼요소
+    const viewBtn = document.querySelector(".sun03 .view_btn");
+    const closeBtn = document.querySelector(".sun03 .close_btn");
+    // console.log("버튼있니?",viewBtn);
+
+    // 이벤트 설정하기 //////
+    viewBtn.onclick = videoView;
+    function videoView(){
+        // 1. 호출확인
+        console.log("나야나!");
+        
+        // 2. 대상선정 : .sou03 .sun03_video 요소
+        var videoBox = document.querySelector(".sun03 .sun03_video");
+        
+        // 3. 변경내용 : 화면에 보이기
+        videoBox.style.display = "block";
+        
+    } /////////////////// videoView 함수 ///////////////
+
+    // 이벤트 설정하기 //////
+    closeBtn.onclick = videoClose;
+    function videoClose(){
+        // 1. 호출확인
+        console.log("나야나!");
+        
+        // 2. 대상선정 : .sou03 .sun03_video 요소
+        var videoBox = document.querySelector(".sun03 .sun03_video");
+        
+        // 3. 변경내용 : 화면에 보이기
+        videoBox.style.display = "none";
+        
+    } /////////////////// videoView 함수 ///////////////
+   
+
+
+
 
 
     /***************************************************

@@ -32,16 +32,18 @@
   left: 10%;
 }
 .sun01 .sun01_textbox h2{
-  font-size: 12rem;
+  font-size: min(18vw,12rem);
   letter-spacing: 3px;
   font-weight: 600;
+  text-shadow: 1px 1px 2px #333;
 }
 .sun01 .sun01_textbox p{
-  width: 28vw;
-  font-size: 1.8rem;
+  width: min(70vw,500px);
+  font-size: min(3vw,1.8rem);
   line-height: 1.3;
   font-weight: 200;
   text-indent: 5px;
+  text-shadow: 1px 1px 2px #333;
 }
 /* 페이지 들어왔을때 효과 */
 .sun01::after{
@@ -73,7 +75,7 @@
 
 /************* section02 *************/
 .sun02{
-  padding: 15vh 0;
+  padding: 15vh 7vw;
 }
 .sun02 .sun02_textbox{
   display: flex;
@@ -122,39 +124,131 @@
 
 /************* section03 *************/
 .sun03{
-  height: 40vh;
-}
-.sun03 .sun03_imgbox{
-  position: relative;
-  height: 100%;
+  height: 50vh;
   background: url(../sunimg/sun04.jpg) no-repeat center/cover;
   background-attachment: fixed;
 }
-.sun03 .frontbox{
+.sun03 .ibx{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.sun03 .medal{
+  width: 330px;
+  height: 330px;
+  perspective: 600px;
+  border-radius: 50%;
+  
+}
+.sun03 .front,
+.sun03 .back{
+  width: 330px;
+  height: 330px;
+  box-sizing: border-box;
+  padding: 30px;
+  backface-visibility: hidden;
+  transition: 1s;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  color: #424242;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 1px 1px 5px 3px rgba(205, 181, 171, 0.396);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sun03 .front{
+  transform: rotateY(0);
+}
+.sun03 .front h4{
+  font-size: 4.5rem;
+  margin-bottom: 2vh;
+}
+.sun03 .back{
+  transform: rotateY(-180deg);
+  flex-direction: column;
+}
+.sun03 .back p{
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+.sun03 .back .view_btn{
+  display: block;
+  border: 1px solid #333;
+  color: #424242;
+  padding: 8px 30px;
+  font-size: 1.5rem;
+  border-radius: 3px;
+  transition: 1s;
+  font-weight: 700;
+}
+.sun03 .back .view_btn:hover{
+  background-color: rgba(255, 220, 206, 0.397);
+}
+/* mouse hover */
+.sun03 .medal:hover .front{
+  transform: rotateY(180deg);
+}
+.sun03 .medal:hover .back{
+  transform: rotateY(0);
+}
+
+.sun03 .sun03_video{
+  position: fixed;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100vh;
+   background: url(../sunimg/sun04.jpg) no-repeat center/cover;
+   z-index: 99999;
+   display: none;
+}
+.sun03 .sun03_video .videobox{
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 20vw;
-  background-color: #fff;
+  width: 60%;
+  aspect-ratio: 16/9;
+}
+.sun03 .sun03_video .sun03_ifr{
+  width: 100%;
+  height: 100%;
+}
+.sun03 .sun03_video p{
+  color: #fff;
+  font-size: 3vw;
   text-align: center;
+  text-shadow: 2px 2px 2px #333;
 }
-.sun03 .frontbox h4{
-  font-size: 2.5rem;
-  margin-bottom: 2vh;
+.sun03 .sun03_video .close_btn{
+  position: absolute;
+  right: 3vw;
+  top: 4vh;
+  font-size: min(4vw,3rem);
+  color: #fff;
+  background: none;
+  background-color: #000;
+  border: 1px solid #fff;
+  padding: 5px 12px;
+  transition: .3s;
 }
-.sun03 .frontbox p{
-  font-size: 1.8rem;
-  font-weight: 300;
+.sun03 .sun03_video .close_btn:hover{
+  background-color: #fff;
+  color: #333;
 }
 
 
 /************* section04 *************/
 .sun04{
-  padding: 15vh 0;
+  padding: 15vh 7vw;
 }
 .sun04 h3{
-  font-size: 7rem;
+  font-size: min(7rem,10vw);
   font-weight: 500;
   margin-bottom: 5vh;
 }
@@ -185,12 +279,12 @@
   padding: 2vh 3vw;
 }
 .sun04 .explorelist .explore_text h4{
-  font-size: 2.8rem;
+  font-size: min(2.8rem,4vw);
   margin-bottom: 3vh;
   font-weight: 400;
 }
 .sun04 .explorelist .explore_text p{
-  font-size: 2rem;
+  font-size: min(2rem,3vw);
   font-weight: 200;
 
   /* m.naver.com -> 뉴스기사 레이아웃 참고
@@ -211,4 +305,49 @@
   background-color: rgba(255, 220, 206, 0.397);
   transition: .4s ease-in-out;
   opacity: 0;
+}
+
+
+/**********************************************************/
+/*미디어쿼리*/
+
+/* 1300px 사이즈 이하 미디어쿼리 시작 */
+@media screen and (max-width: 1300px) {
+  .sun04 .explorelist .explore_text {
+    padding: 0 3vw;
+  }
+  .sun04 .explorelist .explore_text p{
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+}
+  
+
+
+/* 850px 사이즈 이하 미디어쿼리 시작 */
+@media screen and (max-width: 850px) {
+  .sun04 ul .explorelist a{
+    flex-direction: column;
+  }
+  .sun04 .explorelist .explore_img{
+    width: 100%;
+  }
+  .sun04 .explorelist .explore_text{
+    width: 100%;
+    margin: 3vh 0;
+  }
+}
+
+
+/* 700px 사이즈 이하 미디어쿼리 시작 */
+@media screen and (max-width: 700px) {
+  .sun02 .sun02_left{
+    width: 100%;
+  }
+  .sun02 .sun02_right{
+    display: none;
+  }
 }
