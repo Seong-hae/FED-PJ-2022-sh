@@ -127,58 +127,42 @@ nav.gnb ul{
   text-align: center;
   margin-bottom: 30px;
 }
-.info .mbx{
+.info .swiper2{
   position: relative;
   width: 100%;
-  height: 350px;
   overflow: hidden;
 }
-.info #mslide{
-  display: flex;
-  justify-content: center;
-  transition: all .4s;
+.info .swiper2 .swiper-wrapper{
   position: relative;
-  left: 0;
+  height: 350px;
 }
-.info #mslide li{
-  flex-shrink: 0;
-  flex-basis: 30%;
-  margin: 0 20px;
+.info .swiper-wrapper .swiper-slide{
   position: relative;
 }
-.info #mslide li span{
+.info .swiper-wrapper .swiper-slide span{
   color: #fff;
   font-size: 2rem;
   font-family: 'Kanit', sans-serif;
   position: absolute;
   left: 50%;
-  bottom: -10%;
+  bottom: 0%;
   transform: translateX(-50%);
   white-space: nowrap;
 }
-.info #mslide li a img{
+.info .swiper-wrapper .swiper-slide a img{
   width: 100%;
-  height: 100%;
+  height: 90%;
   object-fit: cover;
 }
 /*이동버튼*/
-.mbtn {
-  position: absolute;
-  top: 45%;
-  /*Y축 중앙이동*/
+.swiper2 .swiper-button-next:after{
+  margin-right: -20px;
 }
-/*왼쪽버튼*/
-.mb1 {
-  left: -50px;
+.swiper2 .swiper-button-prev:after{
+  margin-left: -20px;
 }
-/*오른쪽버튼*/
-.mb2 {
-  right: -50px;
-}
-.mbtn img{
-  width: 100%;
-  height: 100%;
-}
+
+
 
 /* 3-2. SNS */
 .info .sns{

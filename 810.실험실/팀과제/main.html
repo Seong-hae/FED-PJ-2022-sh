@@ -8,6 +8,10 @@
     <link href='./img/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png'>
     <!-- 폰트어썸 CDN CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- swiper jQuery -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- 외부CSS 불러오기 -->
     <link rel="stylesheet" href="./css/main.css" />
     <!-- 외부 미디어쿼리 CSS 불러오기 -->
@@ -52,10 +56,10 @@
 
     <!-- 2. 메인영역 -->
     <div id="cont">
-        <main class="cont">
+        <main class="swiper1">
             <!-- 슬라이드 -->
-            <ul id="slide">
-                <li>
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide">
                     <img src="./img/bg01.jpg" alt="배너이미지01">
                     <div class="tbx">
                         <h2>What's UP: February 2023</h2>
@@ -65,7 +69,7 @@
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="swiper-slide">
                     <img src="./img/bg02.jpg" alt="배너이미지02">
                     <div class="tbx tbg1">
                         <h2>A Voice Among the Stars</h2>
@@ -75,7 +79,7 @@
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="swiper-slide">
                     <img src="./img/bg03.jpg" alt="배너이미지03">
                     <div class="tbx">
                         <h2>From Deep Space, With Love</h2>
@@ -85,7 +89,7 @@
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="swiper-slide">
                     <img src="./img/bg04.jpg" alt="배너이미지04">
                     <div class="tbx tbg2">
                         <h2>Magnetic Field of the Psyche Spacecraft</h2>
@@ -97,29 +101,15 @@
                 </li>
             </ul>
 
-            <!--이동버튼-->
-            <a href="#" class="abtn ab1"><img src="./img/arrow_left_slim.png" alt="왼쪽이동버튼"></a>
-            <a href="#" class="abtn ab2"><img src="./img/arrow_right_slim.png" alt="오른쪽이동버튼"></a>
+
 
             <!--블릿버튼-->
-            <ul class="indic">
-                <li class="on">
-                    <img src="./img/dot1.png" alt="흰색">
-                    <img src="./img/dot2.png" alt="회색">
-                </li>
-                <li>
-                    <img src="./img/dot1.png" alt="흰색">
-                    <img src="./img/dot2.png" alt="회색">
-                </li>
-                <li>
-                    <img src="./img/dot1.png" alt="흰색">
-                    <img src="./img/dot2.png" alt="회색">
-                </li>
-                <li>
-                    <img src="./img/dot1.png" alt="흰색">
-                    <img src="./img/dot2.png" alt="회색">
-                </li>
-            </ul>
+            <div class="swiper-pagination"></div>
+
+            <!--이동버튼-->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
 
         </main>
     </div>
@@ -132,72 +122,70 @@
             <div class="more">
                 <h3>More Destinations</h3>
                 
-                <div class="mbx">
-                    <ul id="mslide">
-                        <li>
+                <div class="swiper2">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide">
                             <a href="#">
                                 <img src="./img/jupiter_new.png" alt="Jupiter">
                                 <span>Jupiter</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="swiper-slide">
                             <a href="#">
                                 <img src="./img/earth.png" alt="Earth">
                                 <span>Earth</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="swiper-slide">
                             <a href="#">
                                 <img src="./img/mercury_new.png" alt="Mercury">
                                 <span>Mercury</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="swiper-slide">
                             <a href="#">
                                 <img src="./img/mars.png" alt="Mars">
                                 <span>Mars</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="swiper-slide">
                             <a href="#">
                                 <img src="./img/venus_jg.png" alt="Venus">
                                 <span>Venus</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="swiper-slide">
                             <a href="#">
                                 <img src="./img/saturn.png" alt="Saturn">
                                 <span>Saturn</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="swiper-slide">
                             <a href="#">
                                 <img src="./img/uranus.png" alt="Uranus">
                                 <span>Uranus</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="swiper-slide">
                             <a href="#">
                                 <img src="./img/neptune.png" alt="Neptune">
                                 <span>Neptune</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="swiper-slide">
                             <a href="#">
                                 <img src="./img/earth_moon.png" alt="Earth's Moon">
                                 <span>Earth's Moon</span>
                             </a>
                         </li>
                     </ul>
+
+                    <!--이동버튼-->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
 
-                <!--이동버튼-->
-                <div href="#" class="mbtn mb1">
-                    <img src="./img/arrow_left_slim.png" alt="왼쪽이동버튼">
-                </div>
-                <div href="#" class="mbtn mb2">
-                    <img src="./img/arrow_right_slim.png" alt="오른쪽이동버튼">
-                </div>
+                
 
             </div>
 

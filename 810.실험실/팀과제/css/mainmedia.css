@@ -6,56 +6,38 @@
 @media screen and (max-width: 1400px) {
 
     /******** 2. 메인영역 *********/
-    #slide .tbx{
+    .swiper1 .swiper-slide .tbx{
         width: 23vw;
     }
-    #slide .tbg1{
+    .swiper1 .swiper-slide .tbg1{
         width: 30vw;
     }
-    #slide .tbx h2{
-        font-size: 3.5rem;
-        line-height: 1.4;
-      }
-      #slide .tbx p{
-        font-size: 1.8rem;
-        font-weight: 200;
-        line-height: 1.5;
-        margin-bottom: 30px;
-      }
-      #slide .tbx .btn{
-        width: 8vw;
-      }
-      #slide .tbx .btn a{
-        font-size: 1.4rem;
-      }
+    .swiper1 .swiper-slide .tbx h2{
+    font-size: 3.5rem;
+    line-height: 1.4;
+    }
+    .swiper1 .swiper-slide .tbx p{
+    font-size: 1.8rem;
+    font-weight: 200;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    }
+    .swiper1 .swiper-slide .tbx .btn{
+    width: 8vw;
+    }
+    .swiper1 .swiper-slide .tbx .btn a{
+    font-size: 1.4rem;
+    }
 
     /* 3-1. More Destinations */
+    #info .ibx{
+        padding: 0 8vw;
+    }
     .info .more{
         padding: 10vh 0;
     }
     .info .more h3{
         margin-bottom: 8vh;
-    }
-    .info .mbx{
-        height: 35vh;
-    }
-    .info #mslide li{
-        margin: 0 1vw;
-        flex-basis: 32%;
-    }
-    .info #mslide li span {
-        bottom: -15%;
-    }
-    .mbtn{
-        top: 50%;
-        width: 3.5vw;
-    }
-    .mb1 {
-        left: 0;
-
-    }
-    .mb2 {
-        right: 0;
     }
 
     /* 3-2. SNS */
@@ -115,30 +97,30 @@
     }
 
     /******** 2. 메인영역 *********/
-    #slide .tbx{
+    .swiper1 .swiper-slide .tbx{
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
         width: 70vw;
       }
-    #slide .tbx h2{
+    .swiper1 .swiper-slide .tbx h2{
         font-size: 3rem;
         line-height: 1.4;
-      }
-      #slide .tbx p{
+    }
+    .swiper1 .swiper-slide .tbx p{
         font-size: 1.7rem;
         font-weight: 200;
-      }
-      #slide .tbx .btn{
+    }
+    .swiper1 .swiper-slide .tbx .btn{
         width: 20vw;
-      }
-      #slide .tbx .btn a{
+    }
+    .swiper1 .swiper-slide .tbx .btn a{
         font-size: 1.4rem;
-      }
+    }
       /*이동버튼*/
-    .abtn {
-        top: 90%;
+    .swiper1 .swiper-button-next:after, .swiper1 .swiper-button-prev:after {
+        margin-top: 90vh;
     }
 
     /* 3-1. More Destinations */
@@ -170,20 +152,10 @@
     }
 
     /* 3-1. More Destinations */
-    .info #mslide li span {
+    .info .swiper2 .swiper-wrapper li span {
         font-size: 1.5rem;
     }
 
-    .info #mslide li {
-        margin: 0 9vw;
-        flex-basis: 65%;
-    }
-    .mb1 {
-        left: 50px;
-    }
-    .mb2 {
-        right: 50px;
-    }
 
 }
 /* 600px 사이즈 이하 미디어쿼리 끝 */
