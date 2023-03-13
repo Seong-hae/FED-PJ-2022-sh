@@ -125,7 +125,7 @@
 /************* section03 *************/
 .sun03{
   height: 50vh;
-  background: url(../sunimg/sun04.jpg) no-repeat center/cover;
+  background: url(../sunimg/sunsec03.jpg) no-repeat center/cover;
   background-attachment: fixed;
 }
 .sun03 .ibx{
@@ -203,7 +203,7 @@
    top: 0;
    width: 100%;
    height: 100vh;
-   background: url(../sunimg/sun04.jpg) no-repeat center/cover;
+   background: url(../sunimg/sunsec03.jpg) no-repeat center/cover;
    z-index: 99999;
    display: none;
 }
