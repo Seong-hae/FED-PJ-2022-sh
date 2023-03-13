@@ -27,6 +27,7 @@ function loadFn(){
     // 햄버거버튼요소
     const viewBtn = document.querySelector(".sun03 .view_btn");
     const closeBtn = document.querySelector(".sun03 .close_btn");
+    const html00 = document.querySelector("html");
     // console.log("버튼있니?",viewBtn);
 
     // 이벤트 설정하기 //////
@@ -40,6 +41,8 @@ function loadFn(){
         
         // 3. 변경내용 : 화면에 보이기
         videoBox.style.display = "block";
+        html00.style.overflowY = "hidden";
+        
         
     } /////////////////// videoView 함수 ///////////////
 
@@ -54,6 +57,7 @@ function loadFn(){
         
         // 3. 변경내용 : 화면에 보이기
         videoBox.style.display = "none";
+        html00.style.overflowY = "inherit";
         
     } /////////////////// videoView 함수 ///////////////
    
