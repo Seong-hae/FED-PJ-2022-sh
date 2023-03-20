@@ -76,7 +76,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
         // 현재 스크롤위치
         scTop = window.scrollY;
-        cg(scTop);
+        // cg(scTop);
 
         // 상단영역 슬림메뉴 적용하기 //
         if(scTop >= 100) topA.classList.add("on");
@@ -93,4 +93,19 @@ window.addEventListener("DOMContentLoaded", () => {
         for(let x of scAct) showIt(x);
 
     }); ///////////// scroll ///////////////
+
+
+    // 상단이동버튼(.tbtn) 클릭시 상단이동하기
+    // 부드러운 스크롤 pos 스크롤 위치값 업데이트 필요!
+    tbtn.onclick = (e) => {
+        e.preventDefault();
+        // 부드러운 스크롤 전역 스크롤값을
+        // 0으로 변경하여 최상단으로 이동함!
+        pos = 0;
+    }; ////////// click ///////////
+
+
+
+
+
 }); /////////////// 로딩구역 ////////////////////
