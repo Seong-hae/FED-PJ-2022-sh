@@ -244,12 +244,36 @@ $(() => {
                 .delay(500)
                 .fadeIn(200,()=>{
                     // 7번방 좀비가 올라와서 달려든다!
-                    
+                    bd.eq(7)
+                    .find(".mz")
+                    .animate({  // 윗층으로 올라옴
+                        bottom: bd.eq(7).height()+"px"
+                        // li 높이값 만큼 bottom을 올려준다!
+                    },500,"easeOutElastic")
+                    .delay(500)  // 기다림
+                    .animate({
+                        // 달려들기
+                        right: bd.eq(7).width()*1.2+"px"
+                    },1000,"easeOutBounce",()=>{
+
+                        // 물린 후 대사
+                        msg.css({left:"-106%"})
+                        .html(`아~악! 물렸다!<br>어서 치료주사방으로!`)
+
+                        // 미니언즈
+                        setTimeout(()=>{
+                            mi.find("img")
+                            .attr("src","images/mz1.png")
+                            .css({filter:"grayscale(100%)"});
+                            // 흑백변경: 필터(그레이스케일)
+
+                            // 다음버튼 보이기
+                            $(this).next().delay(500).slideDown(300);
+
+                        }, 1000);
+
+                    })
                 })
- 
-                 // 다음버튼 보이기
-                 $(this).next().delay(500).slideDown(300);
- 
              }; ////////fn 함수 ///////
  
              // 공통함수 호출! : 4번방으로!
