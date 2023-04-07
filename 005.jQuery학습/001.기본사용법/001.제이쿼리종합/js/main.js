@@ -297,7 +297,7 @@ $(() => {
                 setTimeout(()=>{
                     // 이미지변경
                     mi.find("img")
-                    .attr("src","images/mz2.png")
+                    .attr("src","images/m2.png")
                     .css({filter:"grayscale(0)"}); // 다시 컬러!
 
                     // 대사 
@@ -325,6 +325,8 @@ $(() => {
          .click(function(){
              let fn = () => { // 콜백함수
 
+                // 메시지 보이기
+                msg.html(`어서 윗층으로 가자!`).fadeIn(300);
 
  
                  // 다음버튼 보이기
@@ -340,6 +342,9 @@ $(() => {
          .next()
          .click(function(){
              let fn = () => { // 콜백함수
+
+                // 메시지 보이기
+                msg.html(`이제 곧 탈출이닷!`).fadeIn(300);
  
                  // 다음버튼 보이기
                  $(this).next().delay(500).slideDown(300);
@@ -355,17 +360,107 @@ $(() => {
          .next()
          .click(function(){
              let fn = () => { // 콜백함수
+
+                // 메시지 보이기
+                msg.html(`도와줘요!!!!`).fadeIn(300);
+
+                // 1번방 단체좀비들 달려들기!
+                bd.eq(1)
+                .find(".mz")
+                .fadeIn(300)
+                .animate({
+                    right: bd.eq(1).width() + "px"
+                },3000,"easeInExpo");
+
+                // 헬기등장
+                $(".heli")
+                .animate({
+                    left: "20%" // 미니언즈 위치까지 이동
+                },4000,"easeOutBack"
+                ,function(){ // 헬기이동완료 후 
+                    // 헬기 이미지 변경(this->.heli)
+                    $(this).attr("src","images/heli2.png");
+                    // 원본 미니언즈는 사라짐!
+                    mi.hide();
+                })
+                .delay(500) // 0.5초 쉬었다가
+                .animate({
+                    left: "70%" // 다시 오른쪽 끝으로 이동
+                },4000,"easeInOutCirc",
+                function(){ // 애니후 실행함수
+                    // 끝쪽에서 조정사 좀비로!
+                    $(this).attr("src","images/heli3.png")
+                })
+                .delay(300)
+                .animate({
+                    left: "100%" // 아주 천천히 바깥으로 나감
+                },10000,"linear",
+                ()=>{ // 헬기나간 후
+                    // 간판 떨어트리기
+                    // 1단계 : 중간까지 떨어짐
+                    // -> 간판에 class "on"주기
+                    let tit = $(".tit");
+                    tit.addClass("on");
+                    // 2단계 : 맨 아래까지 떨어짐
+                    // 3초후 간판에 class "on2" 추가
+                    setTimeout(() => {
+                        tit.addClass("on2");
+                    }, 3000);
+
+                    // 건물 무너뜨리기
+                    // 간판 떨어진 후 실행(6초후)
+                    setTimeout(() => {
+                        bd.parent().addClass("on");
+                        // parent() -> 부모요소인 .building
+                    }, 6000);
+
+
+                    // 추가구현 :
+                    // 건물 무너진 후 좀비 하나 올라와서 오른쪽으로 사라지기
+                    setTimeout(() => {
+                        // 건물을 다시 기울기 원복!
+                        bd.parent()
+                        .css({transform:"rotate(0deg) !important"})
+                        // 7번방 좀비 선택
+                        bd.eq(7).find(".mz")
+                        .animate({
+                            bottom:"586%"  // 지표로 올라오기
+                        },5000)
+                        .delay(3000)  // 기다리기
+                        .animate({
+                            right:"-244%"  // 오른쪽으로 나가기
+                        },5000)
+
+                    }, 10000); // 10초후 타임아웃 ///
+
+
+
+
+                }); ////// animate /////////
  
-                 // 다음버튼 보이기
-                 $(this).next().delay(500).slideDown(300);
  
              }; ////////fn 함수 ///////
  
              // 공통함수 호출! : 헬기를호출!
              actMini(this,0,fn);
- 
- 
-         }) //// "헬기를호출!" 버튼 끝 //////
+         }); //// "헬기를호출!" 버튼 끝 - 모든 버튼 마무리//////
+
+         // 간판에 마우스 오버시/아웃시 색상변경하기
+         // hover(함수1,함수2)
+         $(".tit").hover(
+            function(){  // over
+        
+            $(this).css({
+                backgroundColor: "green",
+                color:"blue"
+            }); //// css //////
+            }); //// css //////
+         },
+         function(){   // out
+            $(this).css({
+                backgroundColor: "pink",
+                color:"purple"
+         });////////hover /////////////
 
     
 }); /////////////// jQB ////////////////////
