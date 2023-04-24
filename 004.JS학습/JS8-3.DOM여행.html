@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS8-3. DOM여행</title>
     <style>
+        .tit{
+            text-align: center;
+        }
         .stage {
             border: 3px dotted blue;
             padding: 20px;
@@ -66,15 +69,20 @@
                             tgs.forEach(
                                 (ele) => {
                                     if (ele.classList.contains("on")) {
+                                        // 요소.isSameNode(요소)
+                                        // 특정요소가 비교요소와 같으면 true
+                                        // 같지않으면 false
                                         isNow = ele.isSameNode(tgs.item(tgs.length - 1))
                                         console.log(isNow);
                                         if (isNow) return;
+                                        // 마지막 노드와 같으면 return 
                                         cele = ele;
                                         ele.classList.remove("on");
                                     }
                                 }); //// forEach //////
                             if (!isNow)
                                 cele.nextElementSibling.classList.add("on");
+                                // nextElementSibling 선택요소의 다음요소
                             break;
                         case "앞으로":
                             tgs.forEach(
@@ -83,9 +91,11 @@
                                         isNow = ele.isSameNode(tgs.item(0));
                                         console.log(isNow);
                                         if (isNow) return;
+                                        // -> 첫번째 요소가 같으면 return!
                                         cele = ele;
                                         ele.classList.remove("on");
                                         ele.previousElementSibling.classList.add("on");
+                                        // previousElementSibling 이전요소선택
                                     }
                                 }); //// forEach //////
                             break;                            
@@ -104,6 +114,7 @@
                                     if (ele.classList.contains("on")) {
                                         ele.classList.remove("on");
                                         ele.parentElement.classList.add("on");
+                                        // parentElement 부모요소선택
                                     }
                                 }); //// forEach //////
                             break;
