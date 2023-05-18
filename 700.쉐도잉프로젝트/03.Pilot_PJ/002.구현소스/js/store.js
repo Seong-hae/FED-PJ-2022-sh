@@ -26,7 +26,6 @@ const store = new Vuex.Store({
                 cnt: 5,
                 // 카테고리명
                 cat: "style",
-            
             },
         },
         // 공통처리 메뉴 변수
