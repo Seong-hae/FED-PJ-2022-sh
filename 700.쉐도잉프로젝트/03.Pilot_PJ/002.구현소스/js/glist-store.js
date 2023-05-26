@@ -95,7 +95,33 @@ const store = new Vuex.Store({
             
             // save == true 일때만 배열넣고 처리함!
             if(save){
+
+                /* 
+                    [ 기존 데이터 구조에 컬럼 추가하기 ] 
+                    dt.gdata의 데이터 구조는
+                    {
+                        idx: "1",
+                        cat: "men",
+                        ginfo: [],
+                    }
+                    -> 여기에 num 항목을 추가하여 개수데이터를 입력함
+                    {
+                        idx: "1",
+                        cat: "men",
+                        ginfo:[],
+                        num: 4
+                    }
+                    -> 기존객체에 속성추가는 간단하다!
+                    객체변수.새항목 = 값
+                    여기서는
+                    dt.gdata[pm].num = 값
+                */
+
+
                 // 3. 배열뒤에 밀어넣기 메서드 : push(값)
+                // 넣기전에 num항목 추가하기
+                dt.gdata[pm]["num"] = $("#sum").val();
+                // 추가 후 데이터 넣기!
                 org.push(dt.gdata[pm]);
                 console.log("넣은후:", org);
     
@@ -104,7 +130,7 @@ const store = new Vuex.Store({
                 console.log("반영후 로칼쓰:", localStorage.getItem("cart"));
     
                 // 5. 카트 애니메이션 버튼을 등장시켜 카트리스트까지 연동한다!
-                this.commit('cartAni',org.length);
+                this.commit('cartAni',{cnt:org.length,opt:1});
                 // org.length는 배열 데이터 개수를 넘김
             } ///////////// if //////////////
 
@@ -120,8 +146,25 @@ const store = new Vuex.Store({
         },
 
         ////////////// 장바구니 애니메이션 버튼 생성하기 /////////
-        cartAni(dt,pm){
+        cartAni(dt,pm){  // pm.cnt / pm.opt
+            // cnt - 카트아이템 개수
+            // opt - 셋팅옵션번호 (초기CSS값 선택옵션)
+            // opt값 - 0 (오른쪽위 작은 것) / 1(정중앙 큰 것)
             console.log("카트애니!",pm);
+
+            // 초기CSS 셋팅값 배열
+            let icss = [
+                {
+                    tv:"5%",
+                    lv:"80%",
+                    wd:"50px",
+                },
+                {
+                    tv:"50%",
+                    lv:"50%",
+                    wd:"370px",
+                },
+            ]
 
             // 0. 생성될 카트이미지 지우고시작!(하나만 생성!)
             $("#mycart").remove();
@@ -131,15 +174,25 @@ const store = new Vuex.Store({
             $("body").append(`
                 <img id="mycart" 
                 src="./images/mycart.gif" 
-                title="${pm}개의 상품이 카트에 있습니다!" />
+                title="${pm.cnt}개의 상품이 카트에 있습니다!" />
+            `);
+
+            console.log(`
+                top: ${icss[pm.opt].tv}
+                left: ${icss[pm.opt].lv}
+                width: ${icss[pm.opt].wd}
             `);
 
             // 추가한 이미지 화면중앙에 위치하기
             $("#mycart")
             .css({
                 position:"fixed",
-                top:"50%",
-                left:"50%",
+
+                // 변경셋(top,left,width)
+                top:icss[pm.opt].tv,
+                left:icss[pm.opt].lv,
+                width:icss[pm.opt].wd,
+
                 transform:"translate(-50%,-50%)",
                 cursor:"pointer",
                 zIndex:"9999999",
@@ -199,6 +252,8 @@ const store = new Vuex.Store({
             if(org.length==0){ // 데이터가 없으면 지우기
                 $("#mycart").remove();
                 $("#cartlist").remove();
+                // 로컬스 데이터 지우기
+                localStorage.removeItem("cart");
             } ////////// if //////////
             else{ // 데이터 개수 업데이트하기
                 $("#mycart")
@@ -240,6 +295,9 @@ const store = new Vuex.Store({
 
             */
 
+            // 3자리마다 콤마, 붙이는 정규식
+            const chx = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
             let rec = org.map((v,i)=> 
                 `
                     <tr>
@@ -261,9 +319,15 @@ const store = new Vuex.Store({
                         <!--단가-->
                         <td>${v.ginfo[3]}</td>
                         <!--수량-->
-                        <td>1</td>
+                        <td>${v.num}</td>
                         <!--합계-->
-                        <td>${v.ginfo[3]}</td>
+                        <td>${
+                            chx(
+                                v.ginfo[3].trim()
+                                .replaceAll(",","")
+                                .replace("원","")*v.num
+                            )+"원"
+                        }</td>
                         <!--삭제-->
                         <td>
                             <button class="cfn" 
@@ -276,11 +340,44 @@ const store = new Vuex.Store({
                 `
             ); ////////// map //////////////
 
+            // console.log("생성코드:",rec.join(""));
+            // 배열.join(구분자) 
+            // -> 배열을 구분자로 한문자열로 만들어준다!
+            // 구분자를 빈문자열로 넣으면 사이 구분자없이 합쳐진다!
+            // 구분자를 생략하면 콤마(,)가 사이에 들어감
+
+            // 총합계 구하기
+
+            // 단가 숫자만 남기기
+            const pnum = x => x.trim(). replaceAll(",","").
+            replace("원","");
+
+            // map() 메서드는 리턴값을 배열에 담는다!
+             let total = org.map(v=>
+                pnum(v.ginfo[3])*v.num
+                // console.log(`
+                //     단가 : ${pnum(v.ginfo[3])} 
+                //     수량 : ${v.num}
+                // `);
+            ); //////////////// forEach ///////////
+
+            // 순회하며 더하기
+            let temp=0;
+            total.forEach(v=>temp+=v);
+
+            // 원래변수에 다시 할당함
+            total = temp;
+
+            console.log("총합계:",total);
+
+
             // 3. 생성된 카트리스트에 테이블 넣기
             $("#cartlist")
             // (1) html 테이블 태그 넣기
             .html(`
-                <a href="#" class="cbtn cbtn2">×</a>
+                <a href="#" class="cbtn cbtn2">
+                    <span style="display:none">닫기버튼</span>
+                </a>
                 <table>
                     <caption>
                         <h1> 카트 리스트</h1> 
@@ -295,7 +392,17 @@ const store = new Vuex.Store({
                         <th>합계</th>
                         <th>삭제</th>
                     </tr>
-                    ${rec}
+                    ${rec.join('')}
+                    <!-- 총합계 표시하기 -->
+                    <tr>
+                        <td colspan="6">
+                            총합계 :
+                        </td>
+                        <td>
+                            ${chx(total)}원
+                        </td>
+                        <td></td>
+                    </tr>
                 </table>
             `) ///// html ////////
             // (2)카트박스 CSS넣기
@@ -367,7 +474,63 @@ const store = new Vuex.Store({
 
         }, /////////////// bindData 메서드 ///////////////
 
-    }, /////////////////// 
+        ////// 상세보기 버튼 기능 셋팅 메서드 /////////
+        setBtn(dt,pm){
+            console.log("버튼기능셋팅!");
+            //// DOM모두 로딩보장 후 셋팅하기
+            // 제이쿼리 로딩구역에 넣자!
+            $(()=>{
+
+                // 세자리마다 콤마함수
+                const chx = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+                // console.log($(".chg_num"));
+                $(".chg_num img").click(function(){
+                    
+                    // 0. 수량표시요소
+                    let sum = $("#sum");
+
+                    // 1. 이미지 alt속성값 읽기
+                    let ialt = $(this).attr("alt");
+                    console.log(ialt);
+
+                    // 2. 증가/감소 처리하기
+                    if(ialt=="증가")
+                    // sum.val(7) => 이건 제이쿼리 버전
+                    // document.querySelector().value = 7
+                    // => 자바스크립트는 이렇게 씀
+                        sum.val(Number(sum.val())+1);
+                    else
+                        sum.val(Number(sum.val())-1);
+
+                    // 0이면 1로 고정함
+                    if(sum.val()==0) sum.val(1);
+
+                    // -,*,/ 는 숫자대상이므로 자동형변환된다
+                    // 반면 +는 문자더하기도 있으므로
+                    // 기본형이 문자면 자동형변환하지 않는다
+                    // 그래서 Number()로 강제형변환해야 
+                    // 숫자계산을 하게 됨!!
+
+                    // 3. 기본금액 * 개수
+                    let cnum = 
+                    $("#gprice").text().trim()
+                    .replaceAll(",","")
+                    .replace("원","")*sum.val();
+
+                    console.log("계산된값:",cnum);
+
+                    // 4. 출력하기
+                    $("#total").text(chx(cnum)+"원");
+
+                }); /////////////// click /////////////
+
+
+            }); //////////////// jQB ///////////
+
+        }, ///////////////// setBtn 메서드 ///////////////
+
+    }, /////////////////// mutations 구역 /////////////////
 });
 
 // 내보내기
