@@ -73,6 +73,8 @@ $(() => {
     function progFn(seq, pers) {
         //seq - 버튼순번 / pers - 설정%값
 
+        
+
         // 해당순번의 숫자요소
         let ptxt = btns.eq(seq).find(".ptxt");
         // 퍼센트 증가
