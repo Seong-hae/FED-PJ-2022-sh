@@ -2,8 +2,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Characters from "./dc/Characters";
+import Comics from "./dc/Comics";
+import Movies from "./dc/Movies";
+import Main from "./dc/Main";
 import Layout from "./dc/Layout";
 import "./index.css";
+import Games from "./dc/Games";
+import News from "./dc/News";
+import Video from "./dc/Video";
 
 /********************************************* 
     [ 리액트 라우터 ]
@@ -38,7 +45,14 @@ export default function App(){
                {/* 중요!!!:레이아웃 컴포넌트를 루트로 잡아준다!!! */} 
                <Route path="/" element={<Layout />}>
                     {/* 하위라우트 셋팅 */}
-
+                    {/* path대신 index만 쓰면 첫페이지임! */}
+                    <Route index element={<Main />} />
+                    <Route path="ct" element={<Characters />} />
+                    <Route path="co" element={<Comics />} />
+                    <Route path="mv" element={<Movies />} />
+                    <Route path="gm" element={<Games />} />
+                    <Route path="nw" element={<News />} />
+                    <Route path="vd" element={<Video />} />
                </Route>
 
             </Routes>
