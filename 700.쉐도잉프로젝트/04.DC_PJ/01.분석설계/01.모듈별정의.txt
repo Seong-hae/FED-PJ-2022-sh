@@ -22,3 +22,26 @@
             (mouseover/mouseout) + css 
         2) 버튼 클릭시 페이지이동
             (click) + location(라우트 이동)
+
+[3] 비디오 소개 모듈
+    - 모듈명 : VidIntro (JS/CSS/data)
+    (1) 구조정의 :
+        Root > video box(>video+img) 
+            + title box(>heading+p tag)
+
+    (2) 객체화 :
+        {
+            "vsrc" : "유투브 동영상 경로",
+            "stit" : "작은 타이틀",
+            "btit" : "큰 타이틀",
+            "sum": "요약소개",
+            "desc" : "설명",
+            "link" : "관련링크",
+        }
+
+    (3) 기능정의 : 
+        1) 동영상영역 클릭시 동영상 재생/멈춤
+        2) 관련링크 새창열기
+
+
+        
