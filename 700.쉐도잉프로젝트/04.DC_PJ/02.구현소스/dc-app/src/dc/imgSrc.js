@@ -12,7 +12,6 @@ const isrc = {
     logo: "./images/svg/dc-logo.svg",
     // 에러페이지
     error:"https://shop.dc.com/coming-soon/static/media/mxyzptlk.0f810a8a.png"
-
 };
 
 export default isrc;
