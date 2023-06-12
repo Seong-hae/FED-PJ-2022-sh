@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습입니다요</title>
+</head>
+<body>
+
+
+
+
+
+
+    <header>
+        <h1 class="logo">
+            <a href="#">
+                <img src="./images/logo.svg" alt="logo">
+            </a>
+        </h1>
+
+        <ul class="l_menu">
+            <li>
+                <router-link :to="{name:'category',params:{cat:'Lighting'}}">
+                    Lighting
+                </router-link>
+            </li>
+            <li>
+                <router-link :to="{name:'category',params:{cat:'Furniture'}}">
+                    Furniture
+                </router-link>
+            </li>
+            <li>
+                <router-link :to="{name:'category',params:{cat:'Accessories'}}">
+                    Accessories
+                </router-link>
+            </li>
+        </ul>
+
+        <!-- 모바일 햄버거버튼 -->
+        <div class="ham">
+            <div class="ham_top"></div>
+            <div class="ham_bottom"></div>
+        </div>
+
+
+    </header>
+    
+</body>
+</html>
