@@ -1,13 +1,13 @@
 // index.js는 public/index.html 페이지에 적용되는 컴포넌트다!
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter, HashRouter, Routes, Route} from "react-router-dom";
 import Characters from "./dc/Characters";
-import Comics from "./dc/Comics";
-import Movies from "./dc/Movies";
 import Main from "./dc/Main";
 import Layout from "./dc/Layout";
 import "./index.css";
+import Comics from "./dc/Comics";
+import Movies from "./dc/Movies";
 import Games from "./dc/Games";
 import News from "./dc/News";
 import Video from "./dc/Video";
@@ -42,8 +42,9 @@ import ScrollTop from "./dc/common/ScrollTop";
 // 출력해야하기 때문에 스스로 내보내기를 셋팅하는것임!
 export default function App(){
     return(
-        <BrowserRouter>
-        {/* 라우터 갱신될 때 스크롤 상단이동 모듈작동함! */}
+        // <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <HashRouter>
+        {/* 라우터 갱신될때 스크롤 상단이동 모듈작동함! */}
             <ScrollTop />
             <Routes>
                {/* 중요!!!:레이아웃 컴포넌트를 루트로 잡아준다!!! */} 
@@ -52,6 +53,7 @@ export default function App(){
                     {/* path대신 index만 쓰면 첫페이지임!
                     -> Layout의 Link to="/"에 해당하는 셋팅임! 필수! */}
                     <Route index element={<Main />} />
+                    <Route path="main" element={<Main />} />
                     <Route path="ct" element={<Characters />} />
                     <Route path="co1" element={<Comics sub="0" />} />
                     <Route path="co2" element={<Comics sub="1" />} />
@@ -64,7 +66,7 @@ export default function App(){
                </Route>
 
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     );
 } //////////////// App 컴포넌트 //////////////////
 
