@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+
+.slidebanner{
+    position:relative;
+    height:50px;
+    width:985px;
+    overflow:hidden;
+}
+.slidebanner .bannerbox{
+    position:absolute;
+    margin:0;
+    padding:0;
+}
+.slidebanner li{
+    float:left;
+    list-style:none;
+    margin-left:10px
+}
+.slidebanner li:first-child{
+    margin:0
+}
