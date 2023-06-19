@@ -16,22 +16,31 @@
 // }   
 
 
+// 이게 일단 맞음 ㅋㅋㅋㅋㅋ_________________________________________________
 
-timer();
-let current=0;
-let $interval;
+// timer();
+// let current=0;
+// let $interval;
 
-function timer(){
-  let $interval=setInterval(function(){slide()},3000);                        
-}
+// function timer(){
+//   let $interval=setInterval(function(){slide()},3000);                        
+// }
 
-function slide(){
-  $(".bannerbox").animate({
-    top:"-100%"
-  },1200,function(){
-    $(this).css({"top":0});
-    $(".bannerbox").append( $("ul").children("li").eq(0) );
-  });    
-  current++;
-  if(current==5)current=0;
-}   
+// function slide(){
+//   $(".bannerbox").animate({
+//     top:"-100%"
+//   },1200,function(){
+//     $(this).css({"top":0});
+//     $(".bannerbox").append( $("ul").children("li").eq(0) );
+//   });    
+//   current++;
+//   if(current==5)current=0;
+// }
+
+
+
+
+//___________________________________________________________________
+
+
+
