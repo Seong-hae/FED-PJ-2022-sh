@@ -4,6 +4,7 @@ import MenuBtn from "./modules/MenuBtn";
 import VidIntro from "./modules/VidIntro";
 import SwiperVid from "./plugin/SwiperVid";
 import VidSwipe from "./modules/VidSwipe";
+import CatSwipe from "./modules/CatSwipe";
 
 const Main = () => {
     return (
@@ -18,7 +19,9 @@ const Main = () => {
             <VidSwipe 
             pg="main" 
             tit="LATEST TRAILERS, CLIPS & MORE" />
-            {/* 5. 메뉴스와이프모듈 */}
+            {/* 5. 캐릭터 메뉴 스와이프 모듈 */}
+            <CatSwipe 
+            tit="WHO's WHO : THE JUSTICE LEAGUE" />
             {/* 6. 배너모듈(캐릭터) */}
             <Ban cat="CHARACTERS" />
             {/* 7. 메뉴스와이프모듈 */}
