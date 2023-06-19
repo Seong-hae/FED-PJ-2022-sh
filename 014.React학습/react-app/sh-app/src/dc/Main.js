@@ -8,6 +8,6 @@ const Main = () => {
             <Ban cat="main"/>
         </>
     );
-}; /////////////////// Characters /////////////////
+}; /////////////////// Main /////////////////
 
 export default Main;
