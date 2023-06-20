@@ -1,49 +1,122 @@
 @charset "utf-8";
 
+main{
+    height: 3000px;
+    background-color: rgb(214, 208, 183);
+    padding: 300px 0;
+}
 
-/* Mobile - Landscape */
-@media (min-width: 400px) {
+/********************* 헤더 영역 *********************/
+.header{
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 40px;
+    transition: background-color .3s;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
 
-    .carousel{
-        width: 100%;
-        border: 1px solid #000;
-    }
-    .slidebanner{
-        position:relative;
-        height:100vh;
-        width:100%;
-        overflow:hidden;
-    }
-    .slidebanner .bannerbox{
-        position:absolute;
-        top: 0;
-        left: 0;
-    }
-    .slidebanner li{
-        width: 100%;
-        /* position: relative;
-        left: 0;
-        top: 0; */
-    }
-    .slidebanner li img{
-        width: 100%;
-        height: 100%;
+}
 
-    }
+/* pc버전 */
+.header .pcmenu{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+}
+.header .logo{
+    width: 170px;
+}
+.header .logo img{
+    width: 100%;
+    object-fit: cover;
+}
+.header .pcmenu .menu_list,
+.header .pcmenu .menu_login{
+    display: flex;
+    gap: 0 2vw;
+}
+.header .pcmenu li{
+    position: relative;
+}
+.header .pcmenu li::after{
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -27px;
+    height: 1px;
+    width: 100%;
+    background-color: #333;
+    opacity: 0;
+    transition: .3s;
+}
+.header .pcmenu li:hover::after{
+    opacity: 1;
+}
+.header .pcmenu .menu_login li{
+    width: 25px;
+}
+.header .pcmenu .menu_login li img{
+    width: 100%;
+    object-fit: cover;
+}
+
+
+
+/* 햄버거버튼 */
+.header .ham{
+    display: none;
+}
+/* 모바일버전 메뉴 */
+.header .momenu{
+    display: none;
+}
+
+
+/* 1300px 사이즈 이하 미디어쿼리 시작 */
+@media screen and (max-width: 1300px) {
+    /************* header 영역 ***************/
+    
+}
+
+
+/* 800px 사이즈 이하 미디어쿼리 시작 */
+@media screen and (max-width: 800px) {
+
+
+    
 
 
 
 
 }
 
-/* Tablet */
-@media (min-width: 768px) {}
 
-/* Desktop */
-@media (min-width: 992px) {}
 
-/* Desktop (Large) */
-@media (min-width: 1200px) {}
+/* 500px 사이즈 이하 미디어쿼리 시작 */
+@media screen and (max-width: 500px) {
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
