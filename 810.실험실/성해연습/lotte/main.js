@@ -75,7 +75,7 @@ function loadFn() {
         const videoBox = document.querySelector(".momenu");
         
         // 3. 변경내용 : 화면에 보이기
-        videoBox.style.left = "0";
+        videoBox.style.top = "75px";
         black.style.transition = ".3s";
         black.style.opacity = "1";
         black.style.zIndex = "99";
@@ -93,7 +93,7 @@ function loadFn() {
         const videoBox = document.querySelector(".momenu");
         
         // 3. 변경내용 : 화면에 보이기
-        videoBox.style.left = "-100%";
+        videoBox.style.top = "-50vh";
         black.style.opacity = "0";
         black.style.zIndex = "-1";
         

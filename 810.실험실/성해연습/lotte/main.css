@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 main{
-    height: 3000px;
+    height: 10vh;
     background-color: rgb(214, 208, 183);
     padding: 300px 0;
 }
@@ -61,14 +61,6 @@ main{
 .header .pcmenu li:hover::after{
     opacity: 1;
 }
-.header .pcmenu .menu_login li{
-    width: 25px;
-}
-.header .pcmenu .menu_login li img{
-    width: 100%;
-    object-fit: cover;
-}
-
 
 
 /* 햄버거버튼 */
@@ -80,10 +72,133 @@ main{
     display: none;
 }
 
+/********************* 푸터 영역 *********************/
+.info{
+    padding: 40px;
+    background-color: #000;
+    text-align: center;
+}
+.info .foot_up{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+}
+.info .foot_up li{
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+.info .foot_down{
+    display: flex;
+    justify-content: center;
+}
 
-/* 1300px 사이즈 이하 미디어쿼리 시작 */
-@media screen and (max-width: 1300px) {
+
+
+
+
+
+
+/* 1000px 사이즈 이하 미디어쿼리 시작 */
+@media screen and (max-width: 1000px) {
+
     /************* header 영역 ***************/
+    .header .pcmenu .menu_list,
+    .header .pcmenu .menu_login{
+        display: none;
+    }
+
+    /*  햄버거 버튼 */
+    .header .ham{
+        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 10px 0;
+        cursor: pointer;
+    }
+    .header .ham div{
+        width: 30px;
+        height: 2px;
+        background-color: #555;
+    }
+    /* 모바일버전 메뉴 */
+    .header .momenu{
+        display: block;
+        position: absolute;
+        z-index: 9;
+        top: -50vh;
+        left: 0;
+        background-color: #fff;
+        width: 100%;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: .5s;
+    }
+    /* 닫기버튼 */
+    .header .momenu .close{
+        position: absolute;
+        right: 40px;
+        top: -53px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 10px 0;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        background-color: #fff;
+        border: none;
+    }
+    .header .momenu .close div{
+        position: absolute;
+        top: 12px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #555;
+    }
+    .header .momenu .close .close_top{
+        transform: rotate(45deg);
+    }
+    .header .momenu .close .close_bottom{
+        transform: rotate(-45deg);
+    }
+    .header .momenu .momenubox{
+        padding: 0 40px;
+    }
+    .header .momenu .momenubox .momenu_list li{
+        padding: 20px;
+        border-bottom: 1px solid #ccc;
+        text-align: center;
+    }
+    .header .momenu .momenubox .momenu_list li:hover{
+        border-bottom: 1px solid #969696;
+        font-weight: 600;
+    }
+    .header .momenu .momenubox .momenu_login{
+        display: flex;
+        justify-content: space-around;
+        padding: 20px 0;
+        border-bottom: 1px solid #ccc;
+    }
+    .header .momenu .momenubox .momenu_login li{
+        padding: 10px 30px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        transition: .3s;
+    }
+    .header .momenu .momenubox .momenu_login li:hover{
+        color: #fff;
+        background-color: #000;
+    }
+
+
+    
+
     
 }
 
@@ -104,6 +219,21 @@ main{
 /* 500px 사이즈 이하 미디어쿼리 시작 */
 @media screen and (max-width: 500px) {
 
+    /******** 헤더 *********/
+    .header{
+        padding: 20px 20px;
+    }
+    /* 닫기버튼 */
+    .header .momenu .close{
+        right: 20px;
+    }
+    .header .momenu .momenubox{
+        padding: 0 20px;
+    }
+    /******** 푸터 *********/
+    .info{
+        padding: 40px 20px;
+    }
     
 }
 
