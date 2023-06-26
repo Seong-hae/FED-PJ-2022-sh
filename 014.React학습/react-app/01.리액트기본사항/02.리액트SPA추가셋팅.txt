@@ -62,10 +62,16 @@ npm i -D react-router-dom@latest
 7. 부트스트랩 추가 설치
 npm install react-bootstrap bootstrap
 
+
 8. 제이쿼리 추가설치
 npm install jquery
 사용:
 import $ from 'jquery';
+
+9. 제이쿼리 UI 추가설치
+npm i jquery-ui-dist
+사용:
+import 'jquery-ui-dist/jquery-ui';
 
 
 
