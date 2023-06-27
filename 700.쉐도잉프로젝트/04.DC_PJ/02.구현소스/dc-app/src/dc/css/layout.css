@@ -1,7 +1,7 @@
 @charset "utf-8";
 main.cont{
     /* 최소높이 상단,하단제외 채우기
-    - 하단 영역에 흰여백이 생기는 일이 없어짐! */
+    - 하단 여백이 생기는 일이 없어짐! */
     min-height: calc(100vh - 58px - 210px);
 }
 .top{
@@ -35,8 +35,8 @@ main.cont{
     text-decoration: none;
     transition: .3s;
 }
-.gnb a:hover{
-    color: #0074e8;
+.gnb a:hover{    
+    color: #007aff;
 }
 
 
@@ -55,11 +55,10 @@ main.cont{
     /* 처음에 안보임 */
     display: none;
 }
-/* 오버시 보임 */
+/* 오버시보임 */
 .gnb>ul>li:hover .smenu{
     display: block;
 }
-
 .smenu::before{
     content: '';
     position: absolute;
@@ -85,10 +84,44 @@ main.cont{
     border-bottom: 15px solid #fff;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
+
+
 }
 
 h1{
     text-align: center;
+}
+
+/* gnb 검색입력창 박스 */
+.searchingGnb{    
+    position: absolute;
+    left: -230px;
+    top: 9px;
+    line-height: 41px;
+
+    width: 250px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #efefef;
+    box-sizing: border-box;
+    padding: 0 5px;
+    display: none;/* 처음에 안보임! */
+}
+.searchingGnb input{
+    font-size: 15px;
+    width: 77%;
+    margin-top: 5px;
+    margin-left: 10px;
+    background-color: transparent;
+    border: none;
+}
+input:focus{
+    outline: none;
+}
+.schbtnGnb{
+    cursor: pointer;
+    margin-top: 9px;
+    margin-left: 10px;
 }
 
 
