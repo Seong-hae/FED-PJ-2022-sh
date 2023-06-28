@@ -58,6 +58,10 @@ const gnb_data = [
         txt: "VIDEO",
         link: "/vd",
     },
+    {
+        txt: "OPINION",
+        link: "/board",
+    },
 ];
 
 
