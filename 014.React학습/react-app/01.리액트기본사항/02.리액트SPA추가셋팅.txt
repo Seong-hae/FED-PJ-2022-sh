@@ -73,6 +73,8 @@ npm i jquery-ui-dist
 사용:
 import 'jquery-ui-dist/jquery-ui';
 
+- 스크롤시 글씨보이는 플러그인 : npm install aos --save
+
 
 
 
