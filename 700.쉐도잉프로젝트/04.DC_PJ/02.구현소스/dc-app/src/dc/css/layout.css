@@ -1,18 +1,25 @@
 @charset "utf-8";
+
+/* 레이아웃 CSS */
+
 main.cont{
-    /* 최소높이 상단,하단제외 채우기
-    - 하단 여백이 생기는 일이 없어짐! */
+    /* 메인 영역의 최소 높이값 정하기 : 상단,하단 제외하고 가운데 영역 높이를 채우게 하기! */
+    /* : 이렇게 하면 하단 영역 아래쪽에 흰 구멍 생기는 일이 없음~ */
     min-height: calc(100vh - 58px - 210px);
 }
+
 .top{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 58px;
-    z-index: 9999;
-    background-color: #fff;    
+    height: 56px;
+    z-index: 99;
+    
+    background-color: #fff;
+
     font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bold;
 }
 .gnb{
     max-width: 1320px;
@@ -25,40 +32,44 @@ main.cont{
     gap: 0 20px
 }
 .gnb>ul>li{
-    /* 상위메뉴 부모자격 */
     position: relative;
+    /* 상위메뉴 부모자격 */
     line-height: 58px;
 }
 .gnb a{
     color: #111;
-    font-weight: bold;
     text-decoration: none;
-    transition: .3s;
 }
-.gnb a:hover{    
-    color: #007aff;
+.gnb a:hover{
+    color: #0074e8;
 }
 
-
+h1{
+    text-align: center;
+}
 
 /* 서브메뉴 */
 .smenu{
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%);
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.503);
+    box-shadow: 0px 6px 10px 0 rgba(0, 0, 0, 0.1);
+
     white-space: nowrap;
     line-height: 2.5;
-    /* 처음에 안보임 */
+
+    /* 처음에 안 보이게 숨기기 */
     display: none;
 }
-/* 오버시보임 */
+/* 마우스오버시 보임 */
 .gnb>ul>li:hover .smenu{
     display: block;
 }
+
+/* 가상요소로 삼각형 만들기 */
 .smenu::before{
     content: '';
     position: absolute;
@@ -67,11 +78,9 @@ main.cont{
     transform: translateX(-50%);
     width: 0;
     height: 0;
-    border-bottom: 16px solid rgba(0, 0, 0, 0.291);
-    border-left: 16px solid transparent;
-    border-right: 16px solid transparent;
-
-
+    border-bottom: 15px solid #0074e8;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
 }
 .smenu::after{
     content: '';
@@ -81,31 +90,31 @@ main.cont{
     transform: translateX(-50%);
     width: 0;
     height: 0;
-    border-bottom: 15px solid #fff;
+    border-bottom: 15px solid #ffffff;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-
-
 }
 
-h1{
-    text-align: center;
-}
 
-/* gnb 검색입력창 박스 */
-.searchingGnb{    
+
+/* GNB 검색입력창 박스 */
+.searchingGnb{
+    width: 250px;
+    height: 40px;
+
     position: absolute;
     left: -230px;
     top: 9px;
+    z-index: 1;
     line-height: 41px;
 
-    width: 250px;
-    height: 40px;
     border-radius: 20px;
     background-color: #efefef;
     box-sizing: border-box;
     padding: 0 5px;
-    display: none;/* 처음에 안보임! */
+
+    /* 처음에 안 보이게 만들기 */
+    display: none;
 }
 .searchingGnb input{
     font-size: 15px;
@@ -115,7 +124,7 @@ h1{
     background-color: transparent;
     border: none;
 }
-input:focus{
+.searchingGnb input:focus{
     outline: none;
 }
 .schbtnGnb{
@@ -125,38 +134,183 @@ input:focus{
 }
 
 
+
 /* 메인영역 */
+
 
 /* 하단영역 */
 .info{
     text-align: center;
     padding: 30px;
-    background-color: #000;
+    background-color: #222;
     color: #fff;
+}
+
+.info>ul{
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
-.info>ul>li:last-child{
-    font-weight: bold;
-}
-.bmenu{
-    font-family: 'Roboto Condensed', sans-serif;
+
+.info .bmenu{
     display: flex;
+    gap: 10px;
     justify-content: center;
-    margin: 15px 0;
-}
-.bmenu li{
-    padding: 0 10px;
-}
-.bmenu li + li{
-    border-left: 2px solid #fff;
 }
 .bmenu a{
-    color: #fff;
     text-decoration: none;
-    font-weight: bold;
-    transition: .3s;
+    color: #fff;
 }
-.bmenu a:hover{
-    color: #007aff;
+
+
+/* 햄버거버튼 */
+.hambtn{
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+    cursor: pointer;
+    
+    display: none;
 }
+/* 햄버거 버튼 마우스 오버시 */
+.hambtn:hover{
+    color: #0074e8;
+}
+/* 가상요소로 모양 주기 */
+.hambtn::before{
+    content: '≡';
+}
+/* .top에 클래스 on 추가되면 모양 바꾸기 */
+.top.on .hambtn::before{
+    content: '×';
+}
+
+
+/* 1320px 이하 미디어쿼리 */
+@media screen and (max-width:1320px) {
+    /* 이제 상단의 메뉴 영역이 fixed로 바꿀 예정이라 그만큼 자리차기하게 하기 위해 패딩탑으로 공간 만듦 */
+    body{
+        padding-top: 58px;
+        /* : 첫번째 컨텐츠 가려짐 방지 패딩 */
+        overflow-x: hidden;
+    }
+    .top{
+        /* 보이는 화면에 고정하기 */
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        height: 58px;
+        padding: 0 20px;
+        box-sizing: border-box;
+        z-index: 9999;
+        overflow: hidden;
+        transition: .4s ease-out;
+    }
+    .top.on{
+        height: 100vh;
+    }
+} /* 1320px 이하 미디어쿼리 */
+
+
+/* 1024px 이하 미디어쿼리 */
+@media screen and (max-width:1024px) {
+    .gnb{
+        background-color: #fff;
+    }
+    .gnb>ul>li{
+        position: static;
+    }
+    .gnb>ul>li:nth-child(2){
+        border-top: 2px solid #ccc;
+    }
+    /* 메뉴 CHARACTERS ~ OPINION */
+    /* 순번이 1번인 애부터 ~ 7번까지 */
+    .gnb>ul>li:nth-child(1)~li:nth-child(-n+8)
+    {
+        /* outline: 2px dotted red; */
+        background-color: #fff;
+        position: absolute;
+        left: 0;
+        /* 가로값을 100%를 줘서 하나의 메뉴가 한 줄을 채우도록 함 */
+        width: 100%;
+        box-sizing: border-box;
+        text-indent: 50px;
+    }
+    /* top의 height값인 58px * 메뉴 개수 해서 세로로 나열되게 함 */
+    .gnb>ul>li:nth-child(2){
+        top: calc(58px * 1);
+    }
+    .gnb>ul>li:nth-child(3){
+        top: calc(58px * 2);
+    }
+    .gnb>ul>li:nth-child(4){
+        top: calc(58px * 3);
+    }
+    .gnb>ul>li:nth-child(5){
+        top: calc(58px * 4);
+    }
+    .gnb>ul>li:nth-child(6){
+        top: calc(58px * 5);
+    }
+    .gnb>ul>li:nth-child(7){
+        top: calc(58px * 6);
+    }
+    .gnb>ul>li:nth-child(8){
+        top: calc(58px * 7);
+        border-bottom: 1px solid #000;
+    }
+    /* Join Us */
+    .gnb>ul>li:nth-child(10)>a,
+    .gnb>ul>li:nth-child(11)>a    
+    {
+        position: absolute;
+        top: calc(58px * 8);
+        left: 5%;
+        text-align: center;
+        width: 40%;
+        border-radius: 30px;
+        border: 2px solid #000;
+        background-color: #fff;
+        white-space: nowrap;
+        margin-top: 20px;
+        transition: .3s;
+    }
+    .gnb>ul>li:nth-child(11)>a{        
+        left: 55%;
+    }
+    .gnb>ul>li:nth-child(10)>a:hover,
+    .gnb>ul>li:nth-child(11)>a:hover  {
+        color: #fff;
+        background-color: #0d6efd;
+    }
+    .gnb>ul>li:nth-child(3)>a::after,
+    .gnb>ul>li:nth-child(4)>a::after  {
+        content: '▼';
+        font-size: 11px;
+        vertical-align: 2px;
+        margin-left: 5px;
+    }
+    /* 검색박스 */
+    .searchingGnb{
+        left: 80px;
+        width: 80%;
+    }
+
+    /* 햄버거버튼 */
+    .hambtn{
+        display: block;
+    }
+    
+    /* 서브 메뉴 */
+    .smenu {
+        left: 5%;
+        transform: none;
+        z-index: 1;
+    }
+    
+} /* 1024px 이하 미디어쿼리 */
